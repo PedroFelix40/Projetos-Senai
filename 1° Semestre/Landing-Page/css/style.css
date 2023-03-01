@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-layout {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #F9003D;
+    height: 60px;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+header nav {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+
+}
+
+/******** MAIN *******/
+
+#img-banner {
+    width: 100%;
+}
