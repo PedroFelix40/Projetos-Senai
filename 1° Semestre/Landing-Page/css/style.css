@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'bebas-nues';
+    src: url(../assets/fonts/BebasNeue-Regular.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -31,11 +36,50 @@ header nav {
 header nav a {
     text-decoration: none;
     color: white;
-
+    font-family: 'bebas-nues';
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 2px;
 }
+
+header nav a:hover {
+    background-color: white;
+    color: red;
+}
+
 
 /******** MAIN *******/
 
-#img-banner {
-    width: 100%;
+.banner {
+    background-image: url(../assets/image/imagem-fundo-banner.png);
+    height: 720px;
+}
+
+#section1 .text-title {
+    width: 550px;
+}
+
+#section1 .text-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#section1 h1 {
+    color: white;
+    font-size: 95px;
+    font-family: 'bebas-nues';
+    border-bottom: #FFAF00 solid 1px;
+    margin-bottom: 25px;
+}
+
+#section1 h2 {
+    color: #F9003D;
+    font-size: 53px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 60px;
+}
+
+#section2 {
+    background-color: #080324;
 }
