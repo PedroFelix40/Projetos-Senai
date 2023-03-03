@@ -3,6 +3,11 @@
     src: url(../assets/fonts/BebasNeue-Regular.ttf);
 }
 
+@font-face {
+    font-family: 'open sans';
+    src: url(../assets/fonts/static/OpenSans/OpenSans-Regular.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +17,7 @@
 .grid-layout {
     width: 80%;
     height: 100%;
+    max-width: 1600px;
     margin: 0 auto;
 }
 
@@ -84,18 +90,24 @@ header nav a:hover {
 #section2 {
     background-color: #080324;
     height: 720px;
+    padding-top: 40px;
 }
 
 #section2 h1 {
     color: #F9003D;
     font-size: 55px;
-    padding-top: 70px;
+    padding-top: 50px;
     font-family: 'bebas-nues';
 }
 
 #section2 .section2-flex-geral {
     display: flex;
     justify-content: space-between;
+    padding-top: 40px;
+}
+
+#img-sobre {
+    height: 380px;
 }
 
 #section2 .section2-flex-geral h1 {
@@ -139,13 +151,94 @@ h4 {
     justify-content: center;
 }
 
-#section3 .article-flex {
+#section3 .section3-flex {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
-#section3 .info-flex {
+.local-sp {
     display: flex;
-    justify-content: space-between;
-    ma
+    flex-direction: column;
+    justify-content: center;
+}
+
+.duracao-dia {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.desafio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/****** footer ******/
+
+.banner-footer {
+    background-image: url(../assets/image/imagem-fundo-endereco.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 450px;
+    background-position: top;
+}
+
+.endereco h1 {
+    color: #FFAF00;
+    font-family: 'bebas-nues';
+    font-size: 64px;
+}
+
+.localizacao p {
+    color: #A259F7;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.localizacao {
+    padding-left: 40px;
+    border: 2px solid #340B65;
+    background-color: #010010;
+    width: 900px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.endereco-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.end-loc-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer #img-mapa {
+    position: relative;
+    left: 90px;
+    bottom: 55px;
+}
+
+footer .direitos {
+    background-color: #F9003D;
+    height: 70px;
+}
+
+.direitos p {
+    font-size: 18px;
+    font-family: 'open sans';
+    color: white;
+}
+
+.right-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
