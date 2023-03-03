@@ -53,6 +53,7 @@ header nav a:hover {
 .banner {
     background-image: url(../assets/image/imagem-fundo-banner.png);
     height: 720px;
+    background-size: 100%;
 }
 
 #section1 .text-title {
@@ -82,4 +83,69 @@ header nav a:hover {
 
 #section2 {
     background-color: #080324;
+    height: 720px;
+}
+
+#section2 h1 {
+    color: #F9003D;
+    font-size: 55px;
+    padding-top: 70px;
+    font-family: 'bebas-nues';
+}
+
+#section2 .section2-flex-geral {
+    display: flex;
+    justify-content: space-between;
+}
+
+#section2 .section2-flex-geral h1 {
+    padding: 0;
+    color: #FFAF00;
+}
+
+.text-flex2 {
+    display: column;
+    padding-left: 80px;
+    width: 600px;
+}
+
+h4 {
+    font-size: 24px;
+    font-family: Courier;
+    color: white;
+}
+
+.text-flex2 p {
+    font-size: 18px;
+    color: white;
+    font-family: open;
+}
+
+#section3 {
+    background-image: url(../assets/image/imagem-fundo-info.png);
+    height: 200px;
+    background-size: 100%;
+}
+
+#section3 article {
+    color: #A259F7;
+    font-size: 28px;
+    border: #A259F7 solid 1px;
+    letter-spacing: 3px;
+    width: 290px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#section3 .article-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+#section3 .info-flex {
+    display: flex;
+    justify-content: space-between;
+    ma
 }
