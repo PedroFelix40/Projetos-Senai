@@ -178,7 +178,7 @@ h4 {
 
 /****** footer ******/
 
-.banner-footer {
+#banner-footer {
     background-image: url(../assets/image/imagem-fundo-endereco.png);
     background-size: 100%;
     background-repeat: no-repeat;
