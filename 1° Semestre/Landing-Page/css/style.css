@@ -26,6 +26,10 @@ header {
     height: 60px;
 }
 
+header #menu-barras {
+    display: none;
+}
+
 .header-flex {
     display: flex;
     justify-content: end;
@@ -241,4 +245,34 @@ footer .direitos {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+    header nav {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 80vw;
+        max-width: 360px;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #F9003D;
+    }
+    header nav a {
+        width: 150px;
+        margin-bottom: 30px;
+        padding: 2px;
+        border-bottom: 2px dashed white;
+        border-radius: 0;
+        font-size: 24px;
+    }
+    header #menu-barras {
+        display: block;
+    }
+    main,
+    footer {
+        display: none;
+    }
 }
