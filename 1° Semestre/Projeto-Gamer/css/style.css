@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-layout {
+    width: 80%;
+    height: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #1B1426;
+    color: white;
+}
+
+header {
+    height: 140px;
+    border: 2px solid white;
+}
+
+.header-top {
+    border-bottom: 2px solid #F9AA01;
+    height: 50px;
+}
+
+header .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .contatos {
+    display: flex;
+    width: 350px;
+}
+
+header .phone {
+    display: flex;
+    padding: 2px;
+}
+
+header .mail {
+    display: flex;
+}
