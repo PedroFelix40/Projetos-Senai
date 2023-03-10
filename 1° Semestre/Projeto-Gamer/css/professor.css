@@ -1,0 +1,63 @@
+/* Imports de fonts */
+
+
+/* Reset CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-layout {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+body {
+    color: white;
+    background-color: #1B1426;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: #1B1426;
+    height: 60px;
+}
+
+header .logo {
+    height: 25px;
+    width: 85px;
+}
+
+header nav {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 80vw;
+    height: 100vh;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+header .header-top {
+    display: none;
+}
+
+header .menu-usuarios {
+    display: none;
+}
+
+header .alinhamento-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-bottom {
+    height: 100%;
+}
