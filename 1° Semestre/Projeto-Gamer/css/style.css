@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'inter';
+    src: url(../assets/fonts/static/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'titilium web black';
+    src: url(../assets/fonts/titilium/TitilliumWeb-Black.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +28,7 @@ body {
 
 header {
     height: 140px;
-    border: 2px solid white;
+    font-family: 'inter';
 }
 
 .header-top {
@@ -26,7 +36,7 @@ header {
     height: 50px;
 }
 
-header .header-flex {
+header .header-top-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,14 +44,96 @@ header .header-flex {
 
 header .contatos {
     display: flex;
-    width: 350px;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
 }
 
 header .phone {
     display: flex;
-    padding: 2px;
 }
 
 header .mail {
     display: flex;
+}
+
+header .contatos p {
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+header .midias-sociais {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+}
+
+header .header-bottom {
+    height: 90px;
+}
+
+header .header-bottom-flex {
+    display: flex;
+    align-items: center;
+}
+
+header .bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav {
+    width: 450px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: white;
+}
+
+header .icones-header {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* main */
+
+main .section1 {
+    background-image: url(../assets/image/banner-liga-gamer.svg);
+    height: 725px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.section1-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section1 h1 {
+    font-size: 80px;
+    font-family: 'titilium web black';
+    text-shadow: 2px 2px 2px #FD4255, 2px 2px 2px #FD4255;
+    padding-top: 15px;
+}
+
+.section1 button {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 60px;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #F9AA01;
+    border-radius: 5px;
+    border: none;
 }
