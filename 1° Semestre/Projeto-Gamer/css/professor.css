@@ -1,5 +1,10 @@
 /* Imports de fonts */
 
+@font-face {
+    font-family: 'inter';
+    src: url(../assets/fonts/static/Inter-Medium.ttf);
+}
+
 
 /* Reset CSS */
 
@@ -61,3 +66,59 @@ header .alinhamento-between-center {
 header .header-bottom {
     height: 100%;
 }
+
+header .menu-navegacao a {
+    text-decoration: none;
+    border-bottom: 2px #F9AA01 solid;
+    height: 85px;
+    font-size: 15px;
+    font-family: 'inter';
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header .phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #F9AA01;
+    height: 85px;
+    font-size: 15px;
+    font-family: 'inter';
+}
+
+header .mail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
+    font-size: 15px;
+    font-family: 'inter';
+}
+
+.header-bottom .midias-sociais2 {
+    height: 100px;
+    border-bottom: 0px #F9AA01 solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+/*  */
+
+
+/*  */
+
+.menu {
+    display: none;
+}
+
+
+/*  */
+
+
+/*  */
