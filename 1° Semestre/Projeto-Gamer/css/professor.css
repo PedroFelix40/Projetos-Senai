@@ -43,10 +43,11 @@ header nav {
     top: 60px;
     left: 0;
     width: 80vw;
-    height: 100vh;
-    background-color: grey;
+    height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
+    background-image: linear-gradient(to right bottom, rgba(131, 131, 131, 0.7), rgba(131, 131, 131, 0.4));
+    backdrop-filter: blur(45px);
 }
 
 header .header-top {
@@ -88,6 +89,7 @@ header .phone {
     height: 85px;
     font-size: 15px;
     font-family: 'inter';
+    gap: 15px;
 }
 
 header .mail {
@@ -97,13 +99,17 @@ header .mail {
     height: 85px;
     font-size: 15px;
     font-family: 'inter';
+    gap: 15px;
 }
 
 .header-bottom .midias-sociais2 {
-    height: 100px;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
     border-bottom: 0px #F9AA01 solid;
+    padding-bottom: 20px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-evenly;
 }
 
@@ -113,9 +119,7 @@ header .mail {
 
 /*  */
 
-.menu {
-    display: none;
-}
+.menu {}
 
 
 /*  */
