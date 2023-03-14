@@ -14,10 +14,23 @@
     box-sizing: border-box;
 }
 
+
+/* genericas */
+
+.mostrar-menu {
+    left: 0 !important;
+}
+
 .grid-layout {
     width: 90%;
     margin: 0 auto;
     height: 100%;
+}
+
+.alinhamento-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 body {
@@ -29,8 +42,11 @@ body {
 /* HEADER */
 
 header {
-    background-color: #1B1426;
+    position: fixed top 0;
+    width: 100vw;
     height: 60px;
+    z-index: 100;
+    background-color: #1B1426;
 }
 
 header .logo {
@@ -41,27 +57,19 @@ header .logo {
 header nav {
     position: fixed;
     top: 60px;
-    left: 0;
+    left: -80vw;
     width: 80vw;
+    z-index: 101;
     height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(to right bottom, rgba(131, 131, 131, 0.7), rgba(131, 131, 131, 0.4));
     backdrop-filter: blur(45px);
+    transition: left 0.7s;
 }
 
 header .header-top {
     display: none;
-}
-
-header .menu-usuarios {
-    display: none;
-}
-
-header .alinhamento-between-center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 header .header-bottom {
@@ -113,16 +121,22 @@ header .mail {
     justify-content: space-evenly;
 }
 
+header .menu-usuarios {
+    position: fixed;
+    top: 60px;
+    right: -20vw;
+    width: 20vw;
+    z-index: 102;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-image: linear-gradient(to right bottom, rgba(131, 131, 131, 0.7), rgba(131, 131, 131, 0.4));
+    backdrop-filter: blur(45px);
+    transition: left 0.7s;
+}
 
-/*  */
-
-
-/*  */
-
-.menu {}
-
-
-/*  */
-
-
-/*  */
+.mostrar-usuarios {
+    right: 0 !important;
+}

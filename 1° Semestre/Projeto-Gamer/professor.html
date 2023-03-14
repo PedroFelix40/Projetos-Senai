@@ -43,12 +43,12 @@
             <div class="grid-layout alinhamento-between-center">
 
                 <!-- menu hamburguer -->
-                <img src="assets/icons/Vectormenu-hamburger.svg" alt="">
+                <img onclick="mostrarMenu()" src="assets/icons/Vectormenu-hamburger.svg" alt="">
                 <!--  -->
 
                 <img class="logo" src="assets/images/logotipo-gamer.png" alt="Imagem logotipo gamer com um controle de vídeo game ao centro">
 
-                <nav class="menu">
+                <nav class="menu" id="menu">
                     <div class="menu-navegacao">
                         <a href="">Início</a>
                         <a href="">Jogadores</a>
@@ -79,10 +79,10 @@
                 </nav>
 
                 <!-- menu 3 pontinhos -->
-                <img src="assets/icons/Vectortrespontos.svg" alt="Icone de 3 pontinhos, abre e fecha o menu de usuários">
+                <img onclick="mostrarUsuarios()" src="assets/icons/Vectortrespontos.svg" alt="Icone de 3 pontinhos, abre e fecha o menu de usuários">
                 <!--  -->
 
-                <div class="menu-usuarios">
+                <div class="menu-usuarios" id="menu-usuarios">
                     <a href=""> <img src="assets/images/Vectorpersonagem.svg" alt="Icone de perfil"> </a>
                     <a href=""> <img src="assets/images/Vectorsacola.svg" alt="Icone de sacola"> </a>
                     <a href=""> <img src="assets/images/Vectorlupa.svg" alt="Icone de lupa"> </a>
@@ -91,6 +91,18 @@
             </div>
         </div>
     </header>
+
+    <script>
+        function mostrarMenu() {
+            document.getElementById("menu").classList.toggle("mostrar-menu")
+
+        }
+
+        function mostrarUsuarios() {
+            document.getElementById("menu-usuarios").classList.toggle("mostrar-usuarios")
+        }
+    </script>
+
 </body>
 
 </html>
