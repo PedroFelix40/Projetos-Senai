@@ -13,7 +13,7 @@
     <header>
 
         <div class="header-top">
-            <div class="grid-layout">
+            <div class="grid-layout header-top-flex">
                 <div class="contatos">
                     <div class="phone">
                         <img src="assets/icons/icone-telefone.svg" alt="Ícone do telefone de contato">
@@ -40,10 +40,10 @@
         </div>
 
         <div class="header-bottom">
-            <div class="grid-layout alinhamento-between-center">
+            <div class="grid-layout alinhamento-between-center header-bottom-flex">
 
                 <!-- menu hamburguer -->
-                <img onclick="mostrarMenu()" src="assets/icons/Vectormenu-hamburger.svg" alt="">
+                <img onclick="mostrarMenu()" class="menu-hamburguer" src="assets/icons/Vectormenu-hamburger.svg" alt="">
                 <!--  -->
 
                 <img class="logo" src="assets/images/logotipo-gamer.png" alt="Imagem logotipo gamer com um controle de vídeo game ao centro">
@@ -79,7 +79,7 @@
                 </nav>
 
                 <!-- menu 3 pontinhos -->
-                <img onclick="mostrarUsuarios()" src="assets/icons/Vectortrespontos.svg" alt="Icone de 3 pontinhos, abre e fecha o menu de usuários">
+                <img onclick="mostrarUsuarios()" class="menu-pontinhos" src="assets/icons/Vectortrespontos.svg" alt="Icone de 3 pontinhos, abre e fecha o menu de usuários">
                 <!--  -->
 
                 <div class="menu-usuarios" id="menu-usuarios">
@@ -117,15 +117,6 @@
             </div>
         </section>
     </main>
-
-
-
-
-
-
-
-
-
 
     <script>
         function mostrarMenu() {
