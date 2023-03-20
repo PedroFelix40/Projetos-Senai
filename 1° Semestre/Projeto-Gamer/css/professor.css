@@ -262,7 +262,7 @@
         header
         /* divs .phone, .mail */
         /* esconde os elementos desnecessários */
-        header .header-bottom .menu-hamburguer,
+        .header-bottom .menu-hamburguer,
         header .header-bottom .menu-pontinhos,
         header .header-bottom nav .phone,
         header .header-bottom nav .mail,
@@ -323,6 +323,9 @@
         .section1 h1 {
             font-size: 80px;
         }
+        .section1 .bnt-sobre {
+            width: 200px;
+        }
         .section2 {
             display: flex;
             flex-direction: row;
@@ -336,5 +339,23 @@
         }
         .section3 {
             height: 1000px;
+        }
+        .section3 h1 {
+            font-size: 40px;
+            letter-spacing: 10px;
+        }
+        .section3 p {
+            width: 300px;
+            margin-top: 30px;
+            margin-left: 500px;
+            margin-bottom: 115px;
+        }
+        .section3 img {
+            width: 420px;
+            height: 690px;
+        }
+        .section3 .img-flex {
+            display: flex;
+            justify-content: space-between;
         }
     }
