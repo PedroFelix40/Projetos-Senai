@@ -14,6 +14,11 @@
         font-family: 'titilium web bold';
         src: url(../assets/fonts/titilium/TitilliumWeb-Bold.ttf);
     }
+    
+    @font-face {
+        font-family: 'quicksand regular';
+        src: url(../assets/fonts/quicksand/Quicksand-Regular.ttf);
+    }
     /* Reset CSS */
     
     * {
@@ -213,12 +218,105 @@
         letter-spacing: 2px;
     }
     
-    .section3 p {
+    .section3 hr {
         border-bottom: #1B1426 2.5px solid;
         width: 200px;
         margin-top: 30px;
         margin-left: 60px;
         margin-bottom: 115px;
+    }
+    
+    .section3 .img-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1070px;
+    }
+    
+    .section3 .personagem1 {
+        position: relative;
+    }
+    
+    .section3 .personagem2 {
+        position: relative;
+    }
+    
+    .section3 h2 {
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        font-size: 18px;
+        font-family: 'titilium web black';
+    }
+    
+    .section3 p {
+        text-align: center;
+        font-size: 13px;
+        width: 180px;
+        font-family: 'quicksand regular';
+    }
+    
+    .section3 .jogos {
+        position: absolute;
+        left: 107px;
+        top: 20vh;
+        height: 300px;
+        width: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        border-top: #ffffff 1px solid;
+        border-left: #ffffff 1px solid;
+        border-radius: 8px;
+        background: linear-gradient(145.9deg, rgba(122, 49, 236, 0.2) 0%, rgba(47, 7, 109, 0.83) 98.56%);
+        backdrop-filter: blur(7.5px);
+    }
+    
+    .section3 .jogos img {
+        height: 97px;
+        width: 97px;
+    }
+    
+    .section3 .professores {
+        position: absolute;
+        top: 15vh;
+        right: 28vw;
+        height: 300px;
+        width: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        border-top: #ffffff 1px solid;
+        border-left: #ffffff 1px solid;
+        border-radius: 8px;
+        background: linear-gradient(145.9deg, rgba(122, 49, 236, 0.2) 0%, rgba(47, 7, 109, 0.83) 98.56%);
+        backdrop-filter: blur(7.5px);
+    }
+    
+    .section3 .professores img {
+        height: 97px;
+        width: 97px;
+    }
+    
+    .section3 .personagem1-img {
+        position: relative;
+        height: 510px;
+        width: 315px;
+    }
+    
+    .section3 .personagem2-img {
+        position: relative;
+        height: 430px;
+        width: 315px;
+        margin-left: 20px;
+    }
+    
+    .section4 {
+        background-image: url(../assets/images/banner-noticias-cll.png);
+        background-size: 100%;
+        height: 3675px;
     }
     /* Desktop >= 1200px*/
     /*  */
@@ -334,8 +432,8 @@
             height: 500px;
         }
         .section2 img {
-            height: 310px;
-            width: 550px;
+            width: 556px;
+            height: 313px;
         }
         .section3 {
             height: 1000px;
@@ -344,18 +442,51 @@
             font-size: 40px;
             letter-spacing: 10px;
         }
-        .section3 p {
+        .section3 hr {
             width: 300px;
             margin-top: 30px;
             margin-left: 500px;
             margin-bottom: 115px;
         }
-        .section3 img {
-            width: 420px;
-            height: 690px;
+        .section3 p {
+            font-size: 16px;
+        }
+        .section3 h2 {
+            font-size: 25px;
         }
         .section3 .img-flex {
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
+        }
+        .section3 .personagem1-img {
+            width: 425px;
+            height: 690px;
+        }
+        .section3 .personagem2-img {
+            width: 520px;
+            height: 690px;
+        }
+        .section3 .jogos {
+            position: absolute;
+            top: 15vh;
+            left: 16vw;
+            height: 440px;
+            width: 360px;
+        }
+        .section3 .professores {
+            position: absolute;
+            top: 15vh;
+            left: -2vw;
+            height: 440px;
+            width: 360px;
+        }
+        .section3 .jogos img {
+            width: 160px;
+            height: 160px;
+        }
+        .section3 .professores img {
+            width: 140px;
+            height: 140px;
         }
     }

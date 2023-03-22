@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/professor.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
     <title>Formulário de Login</title>
 </head>
@@ -51,9 +51,9 @@
 
                 <nav class="menu" id="menu">
                     <div class="menu-navegacao">
-                        <a href="professor.html">Início</a>
-                        <a href="">Jogadores</a>
-                        <a href="">Equipes</a>
+                        <a href="index.html">Início</a>
+                        <a href="jogadores.html">Jogadores</a>
+                        <a href="equipe.html">Equipes</a>
                         <a href="">Notícias</a>
                     </div>
                     <div class="phone">
@@ -112,6 +112,17 @@
 
         </div>
     </main>
+
+    <script>
+        function mostrarMenu() {
+            document.getElementById("menu").classList.toggle("mostrar-menu")
+
+        }
+
+        function mostrarUsuarios() {
+            document.getElementById("menu-usuarios").classList.toggle("mostrar-usuarios")
+        }
+    </script>
 </body>
 
 </html>
