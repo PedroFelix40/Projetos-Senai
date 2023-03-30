@@ -7,15 +7,10 @@ Console.WriteLine($"{data}");
 Console.WriteLine($"Digite o ano do seu nascimento");
 int Ano = int.Parse(Console.ReadLine());
 
-Console.WriteLine($"Digite o mês do seu nascimento");
-int Mes = int.Parse(Console.ReadLine());
 
-Console.WriteLine($"Digite o dia do seu nascimento");
-int Dia = int.Parse(Console.ReadLine());
+int calcIdade = data.Year-Ano;
+int calcSem = calcIdade*52;
 
-int CalcIdade = data.Year-Ano;
-int CalcSem = CalcIdade*12*4;
-
-Console.WriteLine($"{CalcIdade} {CalcSem}");
+Console.WriteLine(@$"{calcIdade} anos e {calcSem} semanas.");
 
 
