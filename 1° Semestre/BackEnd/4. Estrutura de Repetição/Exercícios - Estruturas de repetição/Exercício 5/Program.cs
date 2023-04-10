@@ -10,9 +10,11 @@ char sexo;
 int contadorHomem = 0;
 int contadorMulher = 0;
 int mediaHomem = 0;
+int mediaHomemTotal = 0;
 int mediaMulher = 0;
+int mediaMulherTotal = 0;
 
-for (contador = 1; contador <= 10; contador++)
+for (contador = 1; contador <= 3; contador++)
 {
     Console.WriteLine($"Informe sua idade: ");
     idade = int.Parse(Console.ReadLine()!);
@@ -26,12 +28,12 @@ for (contador = 1; contador <= 10; contador++)
     if (sexo == 'm')
     {
         contadorHomem++;
-        mediaHomem = (mediaHomem + idade)/10;
+        mediaHomem = mediaHomem + idade;
     }
     else if (sexo == 'f')
     {
         contadorMulher++;
-         mediaMulher = (mediaMulher + idade)/10;
+        mediaMulher = mediaMulher + idade;
     }
 
 }
@@ -40,7 +42,11 @@ Console.WriteLine($"Este é o total de homens: {contadorHomem}");
 
 Console.WriteLine($"Este é o total de mulheres: {contadorMulher}");
 
-Console.WriteLine($"Essa é a média da idade dos homens: {mediaHomem}");
+mediaHomemTotal = mediaHomem/contadorHomem;
+
+Console.WriteLine($"Essa é a média da idade dos homens: {mediaHomemTotal}");
+
+mediaMulherTotal = mediaMulher/contadorMulher;
 
 Console.WriteLine($"Essa é a média da idade das mulheres: {mediaMulher}");
 
