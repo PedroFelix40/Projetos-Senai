@@ -14,7 +14,7 @@ int mediaHomemTotal = 0;
 int mediaMulher = 0;
 int mediaMulherTotal = 0;
 
-for (contador = 1; contador <= 3; contador++)
+for (contador = 1; contador <= 5; contador++)
 {
     Console.WriteLine($"Informe sua idade: ");
     idade = int.Parse(Console.ReadLine()!);

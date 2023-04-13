@@ -7,7 +7,7 @@ int contadorOpiniaoSim = 0;
 int contadorOpiniaoNao = 0;
 double porcentagemHomem = 0;
 
-for (contador = 1; contador <= 3; contador++)
+for (contador = 1; contador <= 10; contador++)
 {
     Console.WriteLine($"Informe seu sexo: (m) (f)");
     char sexo = char.Parse(Console.ReadLine()!);
