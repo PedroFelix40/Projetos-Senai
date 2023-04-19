@@ -1,9 +1,9 @@
 ﻿
 Console.WriteLine($"Informe sua média: ");
-float media = float.Parse(Console.ReadLine());
+float media = float.Parse(Console.ReadLine()!);
 
 Console.WriteLine($"Informe sua frequencia: ");
-float frequencia = float.Parse(Console.ReadLine());
+float frequencia = float.Parse(Console.ReadLine()!);
 
 if ( ( frequencia >= 75 ) && ( media >= 3 ) && ( media <= 6 ) )
 {

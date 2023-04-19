@@ -4,7 +4,7 @@ int[]num = new int [5];
 for (var i = 0; i < 5; i++)
 {
     Console.WriteLine($"Informe o {i +1} numero: ");
-    num[i] = int.Parse(Console.ReadLine()); 
+    num[i] = int.Parse(Console.ReadLine()!); 
 }
 
 

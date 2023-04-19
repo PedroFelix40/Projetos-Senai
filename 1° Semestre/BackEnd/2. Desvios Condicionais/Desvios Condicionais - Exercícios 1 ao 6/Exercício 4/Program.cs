@@ -1,6 +1,6 @@
 ﻿
 Console.WriteLine($"Informe sua senha: ");
-int senha = int.Parse(Console.ReadLine());
+int senha = int.Parse(Console.ReadLine()!);
 
 if (senha == 1234)
 {

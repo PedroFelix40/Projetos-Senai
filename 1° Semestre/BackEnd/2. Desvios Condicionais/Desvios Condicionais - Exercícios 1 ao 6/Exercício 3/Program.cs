@@ -1,12 +1,12 @@
 ﻿
 Console.WriteLine($"Digite o lado do triangulo: ");
-float lado1 = float.Parse(Console.ReadLine());
+float lado1 = float.Parse(Console.ReadLine()!);
 
 Console.WriteLine($"Digite o lado do triangulo: ");
-float lado2 = float.Parse(Console.ReadLine());
+float lado2 = float.Parse(Console.ReadLine()!);
 
 Console.WriteLine($"Digite o lado do triangulo: ");
-float lado3 = float.Parse(Console.ReadLine());
+float lado3 = float.Parse(Console.ReadLine()!);
 
 if ((lado1 == lado2) && (lado2 == lado3) && (lado1 == lado3))
 {

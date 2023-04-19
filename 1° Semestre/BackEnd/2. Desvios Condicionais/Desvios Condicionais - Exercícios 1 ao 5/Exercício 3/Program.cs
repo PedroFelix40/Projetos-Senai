@@ -1,6 +1,6 @@
 ﻿
 Console.WriteLine($"Digite o raio: ");
-float raio = float.Parse(Console.ReadLine());
+float raio = float.Parse(Console.ReadLine()!);
 
 double diametro = raio * 2 ;
 double comprimento = 2 * Math.PI * raio ;

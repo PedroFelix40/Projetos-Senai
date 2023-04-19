@@ -1,6 +1,6 @@
 ﻿
 Console.WriteLine($"Informe o número correspondente ao dia da semana: ");
-int diaSemana = int.Parse(Console.ReadLine());
+int diaSemana = int.Parse(Console.ReadLine()!);
 
 switch (diaSemana)
 {

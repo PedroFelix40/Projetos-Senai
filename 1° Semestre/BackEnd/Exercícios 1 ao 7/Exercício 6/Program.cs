@@ -5,23 +5,25 @@
 // entre os 10 nomes lidos anteriormente (guardados no vetor), ou NÃO ACHEI caso contrário.
 
 string[] nomes = new string[3];
+string nomeBuscado;
+bool nomeEncontrado = false;
 
-for (var i = 0; i < 3; i++)
+for (var i = 0; i < nomes.Length; i++)
 {
-    Console.WriteLine($"Informe o {i +1}º: ");
+    Console.WriteLine($"Informe o {i +1}º nome: ");
     nomes[i] = Console.ReadLine()!;
 }
 
-for (var i = 0; i < 3; i++)
+Console.WriteLine($"Qual nome você procura?");
+nomeBuscado = Console.ReadLine()!;
+
+foreach (string nome in nomes)
 {
-    if (nomes[i] == "pedro")
+    if (nome == nomeBuscado)
     {
-        Console.WriteLine($"Achei o nome!!!!");
-        
-    }
-    else
-    {
-        Console.WriteLine($"Poxaa. Não achei nome.");
-        
+        nomeEncontrado = true;
+        break;
     }
 }
+
+Console.WriteLine(nomeEncontrado == true ? "ACHEI" : "NÃO ACHEI");

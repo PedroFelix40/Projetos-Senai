@@ -1,9 +1,8 @@
 ﻿
 // Criar método para somar 2 números
 int[] numeros = new int[2];
+
 for (var i = 0; i < 2; i++)
-
-
 {
     Console.WriteLine($"Digite dois números: ");
     numeros[i] = int.Parse(Console.ReadLine()!);
@@ -13,6 +12,8 @@ static float Soma(float n1, float n2){
     
     return n1 + n2;
 }
+
+Soma(1,4);
 
 
 

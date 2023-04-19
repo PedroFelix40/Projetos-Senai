@@ -5,7 +5,7 @@ Console.WriteLine($"{data}");
 
 
 Console.WriteLine($"Digite o ano do seu nascimento");
-int Ano = int.Parse(Console.ReadLine());
+int Ano = int.Parse(Console.ReadLine()!);
 
 
 int calcIdade = data.Year-Ano;
