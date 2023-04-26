@@ -22,7 +22,7 @@ novoCelular.Cor = Console.ReadLine()!;
 Console.WriteLine($"Informe o tamanho: ");
 novoCelular.Tamanho = Console.ReadLine()!;
 
-Console.WriteLine($"O celular está ligado? s/n");
+Console.WriteLine($"Deseja ligar o celular? s/n");
 estaLigado = Console.ReadLine()!.ToLower();
 while (estaLigado != "s" && estaLigado != "n")
 {
@@ -39,40 +39,56 @@ else
     novoCelular.Ligado = false;
     Console.WriteLine($"Deseja ligar? s/n");
     estaLigado = Console.ReadLine()!;
-    
 
-    
+    if (estaLigado == "n")
+    {
+        Console.WriteLine($"O celular irá desligar...");
+    }
+    else
+    {
+        novoCelular.Ligado = true;
+    }
+
 }
 
 if (novoCelular.Ligado == true)
 {
     do
-    {  
-    Console.WriteLine(@$"
+    {
+        Console.WriteLine(@$"
     Celular ligado... O que deseja fazer: 
     (1) Fazer ligação
     (2) Enviar mensagem
     (0) Desligar
     ");
-    opcao = Console.ReadLine()!;
+        opcao = Console.ReadLine()!;
 
-    switch (opcao)
-    {
-        case "1":
-            Console.WriteLine($"{novoCelular.FazerLigacao}");
-            
-            break;
-        
-        case "2":
-            Console.WriteLine($"{novoCelular.EnviarMensagem}");
-            
-            break;
-        default:
-            break;
-    }
+        switch (opcao)
+        {
+            case "1":
+                novoCelular.FazerLigacao();
+
+                break;
+
+            case "2":
+                novoCelular.EnviarMensagem();
+
+                break;
+            case "0":
+                Console.WriteLine($"Certeza que deseja desligar o celular? s/n");
+                opcao = Console.ReadLine()!.ToLower();
+                if (opcao == "s")
+                {
+                    opcao = "0";
+                }
+
+                break;
+
+        }
     } while (opcao != "0");
-        
+
 }
+
 
 
 

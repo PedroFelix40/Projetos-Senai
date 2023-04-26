@@ -16,7 +16,7 @@ namespace cadastro_de_aluno
         public float valorMensalidade;
         public float valorMensalidadeFinal;
 
-        public float ValorMensalidade(float mediaFinal)
+        public float VerMensalidade(float mediaFinal)
         {
 
             if (mediaFinal >= 8)
