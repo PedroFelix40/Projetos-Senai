@@ -24,3 +24,17 @@ carrinho.Remover(p2);
 carrinho.Listar();
 
 carrinho.TotalCarrinho();
+
+Console.WriteLine($"_____________________________");
+Console.WriteLine($"Agora vamos att um projeto");
+
+//Criar um objeto com os dados att
+Produto _novoProduto = new Produto();
+_novoProduto.Nome = "Xbox";
+_novoProduto.Preco = 2500f;
+
+carrinho.Atualizar(1, _novoProduto);
+
+carrinho.Listar();
+
+carrinho.TotalCarrinho();

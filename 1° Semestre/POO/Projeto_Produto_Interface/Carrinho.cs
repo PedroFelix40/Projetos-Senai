@@ -33,9 +33,10 @@ namespace Projeto_Produto_Interface
             }
         }
 
-        public void Atualizar(int _codigo, Produto _produto)
+        public void Atualizar(int _codigo, Produto _novoProduto)
         {
-            throw new NotImplementedException();
+            carrinho.Find(x => x.Codigo == _codigo)!.Nome = _novoProduto.Nome;
+            carrinho.Find(x => x.Codigo == _codigo)!.Preco = _novoProduto.Preco;
         }
 
         public void Remover(Produto _produto)
