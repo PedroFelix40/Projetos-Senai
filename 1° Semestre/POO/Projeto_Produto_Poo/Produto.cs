@@ -10,8 +10,8 @@ namespace Projeto_Produto_Poo
         public int Codigo { get; set; }
         public string NomeProduto { get; set; }
         public float Preco { get; set; }
-        public DateTime DataCadastro { get; set; }
-        public Marca Marca = new Marca();
+        public DateTime DataCadastro { get; set; } = DateTime.Now;
+        Marca marca = new Marca();
         public Usuario CadastroPor { get; set; }
 
         List<Produto> listProdutos = new List<Produto>();
@@ -20,12 +20,13 @@ namespace Projeto_Produto_Poo
         public Produto()
         {
         }
-        public Produto(int codigo, string nomeProduto, float preco, string marca)
+        public Produto(int codigo, string nomeProduto, float preco, string marca, DateTime dataCadastro)
         {
             Codigo = codigo;
             NomeProduto = nomeProduto;
             Preco = preco;
-            Marca.NomeMarca = marca;
+            DataCadastro = dataCadastro;
+            this.marca.NomeMarca = marca;
         }
         public void Cadastrar()
         {
@@ -36,32 +37,37 @@ namespace Projeto_Produto_Poo
             this.Preco = float.Parse(Console.ReadLine()!);
 
             Console.WriteLine($"Informe a marca: ");
-            Marca.NomeMarca = Console.ReadLine()!;
+            marca.NomeMarca = Console.ReadLine()!;
 
             Console.WriteLine($"Informe o código: ");
             this.Codigo = int.Parse(Console.ReadLine()!);
+
+            Console.WriteLine($"Produto cadastrado!!");
             
-            
-            listProdutos.Add(new(Codigo, NomeProduto, Preco, Marca.NomeMarca));
+            listProdutos.Add(new(Codigo, NomeProduto, Preco, marca.NomeMarca, DataCadastro));
 
         }
         public void Listar()
         {
             foreach (var item in listProdutos)
-            {
+            {   
                 Console.WriteLine(@$"
-                Produto: {item.NomeProduto}
-                Preço: {item.Preco}
-                Marca: {item.Marca.NomeMarca}
-                Código: {item.Codigo}
+                *******************************
+                *Produto: {item.NomeProduto}  
+                *Preço: {item.Preco:C}        
+                *Marca: {item.marca.NomeMarca}
+                *Código: {item.Codigo}
+                *{item.DataCadastro}
+                *******************************
                 ");
             }
         }
         public void Deletar(int _codigo)
         {
+            Produto p = listProdutos.Find(x => x.Codigo == Codigo)!;
+            listProdutos.Remove(p);
 
+            Console.WriteLine($"Produto removido com sucesso.");
         }
-
-
     }
 }

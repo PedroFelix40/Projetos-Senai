@@ -13,23 +13,37 @@ namespace Projeto_Produto_Poo
 
         List<Marca> listMarca = new List<Marca>();
 
-        public Marca Cadastrar()
+        public Marca()
         {
-            Marca novaMarca = new Marca();
-
-            return novaMarca;
+            
         }
-        public Marca Listar()
+        public Marca(string nomeMarca)
         {
-            Marca novaMarca = new Marca();
-
-            return novaMarca;
+            NomeMarca = nomeMarca;
         }
-        public Marca Remover()
+        public void Cadastrar()
         {
-            Marca novaMarca = new Marca();
+            Console.WriteLine($"Informe uma marca: ");
+            this.NomeMarca = Console.ReadLine()!;
+            Console.WriteLine($"Informe o código da marca: ");
+            this.Codigo = int.Parse(Console.ReadLine()!);
+            
+            listMarca.Add(new(NomeMarca));
+        }
+        public void Listar()
+        {
+            foreach (var item in listMarca)
+            {
+                Console.WriteLine($"Marca: {item.NomeMarca}");
+            }
+        }
+        public void Remover()
+        {
+            Marca m = listMarca.Find(x => x.NomeMarca == NomeMarca)!;
+            listMarca.Remove(m);
 
-            return novaMarca;
+            Console.WriteLine($"Marca removida com sucesso.");
+            
         }
         
     }
