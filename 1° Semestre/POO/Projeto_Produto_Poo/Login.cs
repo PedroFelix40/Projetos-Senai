@@ -77,6 +77,7 @@ namespace Projeto_Produto_Poo
              ║  4 - Cadastrar Marca   ║
              ║  5 - Listar Marca      ║
              ║  6 - Remover Marca     ║
+             ║                        ║
              ║  0 - Sair              ║
              ╚════════════════════════╝
             ");
@@ -104,6 +105,15 @@ namespace Projeto_Produto_Poo
                         break;
                     case "6":
                         marca.Remover();
+                        break;
+                    case "0":
+                        Console.WriteLine(@$"
+                        Deseja realmente sair?
+                        Digite 0 para confirmar
+                        Pressione qualquer tecla para continuar...
+                        ");
+                        opcao = Console.ReadLine()!;
+
                         break;
                 }
             } while (opcao != "0");

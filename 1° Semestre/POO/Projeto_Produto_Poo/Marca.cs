@@ -11,7 +11,7 @@ namespace Projeto_Produto_Poo
         public string NomeMarca { get; set; }
         public DateTime DataCadastro { get; set; }
 
-        List<Marca> listMarca = new List<Marca>();
+        public static List<Marca> listMarca = new List<Marca>();
 
         public Marca()
         {
@@ -20,6 +20,10 @@ namespace Projeto_Produto_Poo
         public Marca(string nomeMarca)
         {
             NomeMarca = nomeMarca;
+        }
+        public void MarcaAdd(string nomeMarca)
+        {
+            listMarca.Add(new(nomeMarca));
         }
         public void Cadastrar()
         {
