@@ -64,5 +64,19 @@ namespace Primeiro_Exemplo.Model
             return produtos;
         }
 
+        //métodos para preparar as linhas a serem inseridas no csv
+        public string PrepararLinhasCsv(Produto p)
+        {
+            
+            return $"{p.Codigo};{p.Nome};{p.Preco}";
+        }
+
+        //metodo para inserir um produto na linha do csv
+        public void inserir(Produto p)
+        {
+            string[] linhas = {PrepararLinhasCsv(p)};
+            
+            File.AppendAllLines(PATH, linhas);
+        }
     }
 }
