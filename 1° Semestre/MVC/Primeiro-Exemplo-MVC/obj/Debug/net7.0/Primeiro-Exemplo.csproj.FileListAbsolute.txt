@@ -1,0 +1,15 @@
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.csproj.AssemblyReference.cache
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.AssemblyInfoInputs.cache
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.AssemblyInfo.cs
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.csproj.CoreCompileInputs.cache
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\bin\Debug\net7.0\Primeiro-Exemplo.exe
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\bin\Debug\net7.0\Primeiro-Exemplo.deps.json
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\bin\Debug\net7.0\Primeiro-Exemplo.runtimeconfig.json
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\bin\Debug\net7.0\Primeiro-Exemplo.dll
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\bin\Debug\net7.0\Primeiro-Exemplo.pdb
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.dll
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\refint\Primeiro-Exemplo.dll
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.pdb
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\Primeiro-Exemplo.genruntimeconfig.cache
+C:\Users\48746019871\Desktop\Projetos-Senai\1° Semestre\MVC\Primeiro-Exemplo-MVC\obj\Debug\net7.0\ref\Primeiro-Exemplo.dll
