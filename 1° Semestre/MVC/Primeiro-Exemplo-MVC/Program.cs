@@ -4,8 +4,8 @@ using Primeiro_Exemplo.View;
 
 ProdutoModel model = new ProdutoModel();
 ProdutoController controller = new ProdutoController();
-ProdutoView view = new ProdutoView();
+// ProdutoView view = new ProdutoView();
 
-// controller.MostrarMenu();
-view.Menu();
+// controller.MandarCsv();
+controller.MostrarMenu();
 
