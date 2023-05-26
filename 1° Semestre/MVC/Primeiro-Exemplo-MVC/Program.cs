@@ -1,7 +1,11 @@
 ﻿using Primeiro_Exemplo.Controller;
 using Primeiro_Exemplo.Model;
+using Primeiro_Exemplo.View;
 
-Produto p = new Produto();
+ProdutoModel model = new ProdutoModel();
 ProdutoController controller = new ProdutoController();
+ProdutoView view = new ProdutoView();
 
-controller.ListarProdutos();
+// controller.MostrarMenu();
+view.Menu();
+
