@@ -1,0 +1,12 @@
+Dotnet new mvc - para criar um projeto mvc
+dotnet dev-certs https --trust - certificado do windows
+Entity Framework Core 
+Data annotation c# - Validação com os validadores de anotação de dados (C#)
+	Expressões regulares
+	[DisplayName("Price")]
+        [RegularExpression(@"^\$?\d+(\.(\d{2}))?$")]
+        public decimal UnitPrice { get; set; }
+
+A "Key" como o proprio nome diz, serve como uma chave.
+
+Infra -> Context

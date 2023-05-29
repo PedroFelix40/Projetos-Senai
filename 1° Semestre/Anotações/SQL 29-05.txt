@@ -1,0 +1,5 @@
+SQL - é uma linguagem, não é um banco de dados
+
+Banco de dados - SQLServer; MySQL; Cassandra; Postgree; 
+
+SSMS - Gerenciador de banco de dados
