@@ -1,0 +1,25 @@
+/* Reset CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*genericas*/
+
+.grid-layout {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+
+/*header*/
+
+header {}
+
+.section1 {
+    background-image: url(../assents/);
+}

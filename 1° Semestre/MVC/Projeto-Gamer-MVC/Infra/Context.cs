@@ -24,7 +24,7 @@ namespace Projeto_Gamer_MVC.Infra
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source = DESKTOP-VLQ1I1C; initial catalog = gamerTarde; Intregrated Security = true; TrustServerCertificate = true");
+                optionsBuilder.UseSqlServer("Data Source = DESKTOP-VLQ1I1C; initial catalog = gamerTarde; User Id=sa; pwd=Senai@134; TrustServerCertificate = true");
             }
         }
 
