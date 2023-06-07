@@ -13,6 +13,26 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\MVC\\Projeto-Gamer-MVC\\wwwroot\\img\\Equipes\\LogoDoFlu.png",
+      "PackagePath": "staticwebassets\\img\\Equipes\\LogoDoFlu.png"
+    },
+    {
+      "Id": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\MVC\\Projeto-Gamer-MVC\\wwwroot\\img\\Equipes\\i.png",
+      "PackagePath": "staticwebassets\\img\\Equipes\\i.png"
+    },
+    {
+      "Id": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\MVC\\Projeto-Gamer-MVC\\wwwroot\\img\\Equipes\\img.jpg",
+      "PackagePath": "staticwebassets\\img\\Equipes\\img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\MVC\\Projeto-Gamer-MVC\\wwwroot\\img\\Equipes\\murilo.png",
+      "PackagePath": "staticwebassets\\img\\Equipes\\murilo.png"
+    },
+    {
+      "Id": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\MVC\\Projeto-Gamer-MVC\\wwwroot\\img\\Equipes\\padrao.png",
+      "PackagePath": "staticwebassets\\img\\Equipes\\padrao.png"
+    },
+    {
       "Id": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\MVC\\Projeto-Gamer-MVC\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

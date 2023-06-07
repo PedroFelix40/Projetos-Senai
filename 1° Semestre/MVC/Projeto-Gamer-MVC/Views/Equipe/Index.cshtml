@@ -6,10 +6,10 @@
 
 <h1>Tela de Equipes</h1>
 
-<form method="post" action='@Url.Action("Cadastrar")'>
+<form method="post" action='@Url.Action("Cadastrar")' enctype="multipart/form-data">
 
     <label for="">Nome</label>
-    <input type="text" name="Nome">
+    <input type="text" name="Nome" required>
 
     <label for="">Imagem</label>
     <input type="file" name="Imagem">
@@ -25,6 +25,7 @@
         <th>Id</th>
         <th>Nome</th>
         <th>Imagem</th>
+        <th>Ações</th>
     </thead>
 
     <tbody>
@@ -33,7 +34,15 @@
         <tr>
             <td>@equipe.IdEquipe</td>
             <td>@equipe.Nome</td>
-            <td>@equipe.Imagem</td>
+            <td>
+                <img src="/img/Equipes/@equipe.Imagem" alt="Imagem da equipe @equipe.Imagem" width="50px">
+            </td>
+            <td>
+                <a asp-area="" asp-controller="Equipe" asp-action="Excluir" asp-route-id="@equipe.IdEquipe">Excluir</a>
+            </td>
+            <td>
+                <a asp-area="" asp-controller="Equipe" asp-action="Editar" asp-route-id="@equipe.IdEquipe">Editar</a>
+            </td>
         </tr>
         }
     </tbody>
