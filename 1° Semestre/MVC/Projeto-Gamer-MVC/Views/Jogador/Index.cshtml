@@ -17,7 +17,7 @@
     <input type="password" name="Senha" required>
 
     <select name="IdEquipe" required>
-        <option value="0">Selecione uma equipe</option>
+        <option value="">Selecione uma equipe</option>
         @foreach (Equipe equipe in ViewBag.Equipe)
         {
             <option value="@equipe.IdEquipe">@equipe.Nome</option>   

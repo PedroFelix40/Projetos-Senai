@@ -21,8 +21,9 @@
 
 
     
-    <select name="IdEquipe" required>
+    <select name="IdEquipe" id="IdEquipe" required>
         <option value="0">Selecione uma equipe</option>
+        
         @foreach (Equipe equipe in ViewBag.Equipe)
         {
             @if(equipe.IdEquipe == @ViewBag.Jogador.IdEquipe)
@@ -34,6 +35,7 @@
                 <option value="@equipe.IdEquipe" >@equipe.Nome</option>
             }   
         }
+
     </select>
 
     <button type="submit">Atualizar</button>
