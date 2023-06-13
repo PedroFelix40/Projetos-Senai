@@ -54,7 +54,7 @@ namespace Projeto_Gamer_MVC.Controllers
         [Route("Logout")]
         public IActionResult Logout()
         {
-            HttpContext.Session.Remove("UsarName");
+            HttpContext.Session.Remove("UserName");
 
             return LocalRedirect("~/");
         }
