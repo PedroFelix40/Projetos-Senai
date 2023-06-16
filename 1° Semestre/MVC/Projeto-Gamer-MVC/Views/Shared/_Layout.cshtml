@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Projeto_Gamer_MVC</title>
     <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/header-footer.css">
 
 </head>
 
@@ -57,7 +58,7 @@
                             <a asp-controller="Equipe" asp-action="Index">Equipes</a>
                             <a asp-controller="Login" asp-action="Logout">Logout</a>
                         }
-                        <a href="#">Notícias</a>
+                        <a href="~/#noticias">Notícias</a>
 
                         <a class="phone-box">
                             <img src="~/assets/phone-icon.png" alt="phone icon" title="Ícone Telefone">
@@ -99,6 +100,9 @@
     @RenderBody()
 
 
+
+
+
     @*MIGRAR O FOOTER AQUI*@
     <!-- FOOTER -->
     <footer>
@@ -131,11 +135,11 @@
                 </div>
 
                 <ul class="menu-footer">
-                    <li class="menu-ftitem"><a href="#">Início</a></li>
-                    <li class="menu-ftitem"><a href="#">Jogadores</a></li>
-                    <li class="menu-ftitem"><a href="#">Notícias</a></li>
-                    <li class="menu-ftitem"><a href="#">Login</a></li>
-                    <li class="menu-ftitem" id="link-equipe"><a href="#">Equipes</a></li>
+                    <li class="menu-ftitem"><a asp-controller="Home" asp-action="Index">Início</a></li>
+                    <li class="menu-ftitem"><a asp-controller="Jogador" asp-action="Index">Jogadores</a></li>
+                    <li class="menu-ftitem"><a href="~/#noticias">Notícias</a></li>
+                    <li class="menu-ftitem"><a asp-controller="Login" asp-action="Index">Login</a></li>
+                    <li class="menu-ftitem" id="link-equipe"><a asp-controller="Equipe" asp-action="Index">Equipes</a></li>
                 </ul>
             </div>
 
