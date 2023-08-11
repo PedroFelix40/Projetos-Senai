@@ -18,4 +18,7 @@ INSERT INTO Evento(IdTipoDeEvento,IdInstituicao,Nome,Descricao,DataEvento,Horari
 INSERT INTO PresencaEvento(IdUsuario,IdEvento,Situacao)
 	VALUES(1,1,1);
 
+INSERT INTO ComentarioEvento(IdUsuario,IdEvento,Descricao,Exibe)
+	VALUES(1,1,'Gostei do evento!!',1)
+
 	SELECT * FROM Evento
