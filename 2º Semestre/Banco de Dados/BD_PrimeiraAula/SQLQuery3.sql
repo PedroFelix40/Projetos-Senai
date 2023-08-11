@@ -1,0 +1,4 @@
+-- DQL - DATA QUERY LINGUAGE
+
+SELECT * FROM Funcionarios
+SELECT * FROM Empresas
