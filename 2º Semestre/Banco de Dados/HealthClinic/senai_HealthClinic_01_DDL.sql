@@ -1,0 +1,76 @@
+-- DDL
+
+-- Criar BD
+CREATE DATABASE HealthClinic 
+
+-- Usar o BD
+USE HealthClinic
+
+-- Criar as tabelas
+
+-- PRIMARY KEY
+CREATE TABLE Clinica
+(
+	IdClinica INT PRIMARY KEY IDENTITY,
+	NomeFantasia VARCHAR(100) NOT NULL,
+	RazaoSocial VARCHAR(100) NOT NULL UNIQUE,
+	CNPJ CHAR(14) NOT NULL UNIQUE,
+	Endereco VARCHAR(100) NOT NULL,
+	HorarioAbertura TIME NOT NULL,
+	HorarioEncerramento TIME NOT NULL
+)
+
+CREATE TABLE Usuario
+(
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(50) NOT NULL,
+	Email VARCHAR(30) NOT NULL UNIQUE,
+	Senha VARCHAR(30) NOT NULL,
+	DataNascimento DATE
+)
+
+CREATE TABLE Especialidade
+(	
+	IdEspecialidade INT PRIMARY KEY IDENTITY,
+	Especialidade VARCHAR(30) NOT NULL
+)
+
+-- FOREIGN KEY
+CREATE TABLE Medico
+(
+	IdMedico INT PRIMARY KEY IDENTITY,
+	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
+	IdEspecialidade INT FOREIGN KEY REFERENCES Especialidade(IdEspecialidade) NOT NULL,
+	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL,
+	Expediente VARCHAR(20) NOT NULL
+)
+
+CREATE TABLE Paciente
+(
+	IdPaciente INT PRIMARY KEY IDENTITY,
+	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL,
+	Telefone VARCHAR(11) NOT NULL,
+	RG VARCHAR(9) NOT NULL UNIQUE,
+	CPF VARCHAR(11) NOT NULL UNIQUE,
+	Endereco VARCHAR(50) NOT NULL,
+)
+
+CREATE TABLE Consulta 
+(
+	IdConsulta INT PRIMARY KEY IDENTITY,
+	IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico) NOT NULL,
+	IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente) NOT NULL,
+	Dia DATE NOT NULL,
+	Hora TIME NOT NULL,
+	Prontuario VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE Comentario
+(
+	IdComentario INT PRIMARY KEY IDENTITY,
+	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
+	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL,
+	Comentario VARCHAR(100) NOT NULL
+)
+
+DROP DATABASE HealthClinic
