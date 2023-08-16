@@ -1,7 +1,7 @@
 -- DDL
 
 -- Criar BD
-CREATE DATABASE HealthClinic 
+CREATE DATABASE HealthClinic
 
 -- Usar o BD
 USE HealthClinic
@@ -72,5 +72,3 @@ CREATE TABLE Comentario
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL,
 	Comentario VARCHAR(100) NOT NULL
 )
-
-DROP DATABASE HealthClinic
