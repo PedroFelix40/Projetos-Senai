@@ -26,6 +26,23 @@ namespace webapi.filmes.tarde.Repositories
 
         public GeneroDomain BuscarPorId(int id)
         {
+            /*
+            //Adiciona o genero encontrado a uma variavel
+            GeneroDomain generoEncontrado = new GeneroDomain();
+
+            //Declara a SqlConnection passando a string de conexão como parâmetro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                //Declara instrução a ser executada
+                string BuscarId = $"SELECT IdGenero, Nome FROM Genero WHERE IdGenero = {id}";
+
+                //Abre a conexão com o bd
+                con.Open();
+
+                SqlDataReader rdr;
+
+
+            } */
             throw new NotImplementedException();
         }
 
@@ -76,16 +93,16 @@ namespace webapi.filmes.tarde.Repositories
                             IdGenero = Convert.ToInt32(rdr[0]),
 
                             //Atribui a propiedade nome o valor da coluna nome
-                            Nome = Convert.ToString(rdr["Nome"])
+                            Nome = rdr[1].ToString()
                         };
 
                         //Adiciona o objeto criado dentro da lista
                         ListaGeneros.Add(genero);
                     }
                 }
+            }
                 //Retorna a lista de generos 
                 return ListaGeneros;
-            }
         }
         
     }
