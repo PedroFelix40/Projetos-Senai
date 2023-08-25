@@ -25,7 +25,7 @@ namespace webapi.filmes.tarde.Repositories
             throw new NotImplementedException();
         }
 
-        public void deletar(int id)
+        public void Deletar(int id)
         {
             throw new NotImplementedException();
         }

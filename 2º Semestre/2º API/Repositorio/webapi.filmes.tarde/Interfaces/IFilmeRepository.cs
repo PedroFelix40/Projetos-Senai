@@ -44,6 +44,6 @@ namespace webapi.filmes.tarde.Interfaces
         /// Deletar um filme existente
         /// </summary>
         /// <param name="id">id do obj a ser deletado</param>
-        void deletar(int id);
+        void Deletar(int id);
     }
 }

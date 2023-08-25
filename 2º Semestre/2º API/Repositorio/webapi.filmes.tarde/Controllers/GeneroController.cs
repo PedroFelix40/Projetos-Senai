@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 using webapi.filmes.tarde.Repositories;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace webapi.filmes.tarde.Controllers
 {
@@ -52,13 +53,54 @@ namespace webapi.filmes.tarde.Controllers
 
                 //Retorna os statusCode 200 ok e a lista de generos no formato json
                 return Ok(listasGeneros);
-                //return ok(listaGneros);
+                //return ok(listaGeneros);
             }
             catch (Exception erro)
             {
                 //Retorna um status code 400 - BadRequest e a mensagem de erro
                 return BadRequest(erro.Message);
-            } 
+            }
+        }
+
+        /// <summary>
+        /// EndPoint que acessa o metodo cadastrar 
+        /// </summary>
+        /// <returns>status code</returns>
+        [HttpPost]
+        public IActionResult Post(GeneroDomain novoGenero)
+        {
+            try
+            {
+                // faz a chamada para o metodo cadastrar
+                _generoRepository.Cadastrar(novoGenero);
+
+                //Retorna um statusCode 201 ok
+                return Created("Objeto criado", novoGenero);
+                //return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+
+                //Retorna um status code 400 - BadRequest e a mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id) 
+        {
+            try
+            {
+                // faz a chamada para o metodo deletar
+                _generoRepository.Deletar(id);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                //Retorna um status code 400 - BadRequest e a mensagem de erro
+                return BadRequest(erro.Message);
+            }
         }
     }
 }
