@@ -86,6 +86,7 @@ namespace webapi.filmes.tarde.Controllers
             }
         }
 
+        /*
         [HttpDelete("{id}")]
         public IActionResult Delete(int id) 
         {
@@ -99,6 +100,78 @@ namespace webapi.filmes.tarde.Controllers
             catch (Exception erro)
             {
                 //Retorna um status code 400 - BadRequest e a mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }
+        */
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _generoRepository.Deletar(id);
+
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /*
+        [HttpGet("{id}")]
+        public IActionResult Get(int id) 
+        {
+            try
+            {
+                GeneroDomain generoDomain = _generoRepository.BuscarPorId(id);
+
+                return Ok(generoDomain);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+        */
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
+
+                if (generoBuscado == null)
+                {
+                    return NotFound("O gênero buscado não foi encontrado.");
+                }
+
+                return Ok(generoBuscado);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult PutById(int id, GeneroDomain genero)
+        {
+            try
+            {
+                _generoRepository.AtualizarIdUrl(id, genero);
+
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+
                 return BadRequest(erro.Message);
             }
         }

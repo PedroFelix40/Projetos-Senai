@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using System.Runtime.Intrinsics.Arm;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 
@@ -21,38 +22,110 @@ namespace webapi.filmes.tarde.Repositories
 
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
-            throw new NotImplementedException();
-        }
+            using(SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string atualizarUrl = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
 
+                SqlDataReader rdr;
+
+                con.Open();
+
+                using(SqlCommand cmd = new SqlCommand(atualizarUrl, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+
+                 
+
+                    cmd.ExecuteNonQuery();
+                }
+             }
+         }
+            
+
+
+        /// <summary>
+        /// Buscar genero atraés do id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Objero buscado</returns>
+        /*
         public GeneroDomain BuscarPorId(int id)
         {
-            /*
-            //Adiciona o genero encontrado a uma variavel
             GeneroDomain generoEncontrado = new GeneroDomain();
 
             //Declara a SqlConnection passando a string de conexão como parâmetro
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
+
                 //Declara instrução a ser executada
-                string BuscarId = $"SELECT IdGenero, Nome FROM Genero WHERE IdGenero = {id}";
+                string querySelectById = "SELECT IdGenero, Nome FROM Genero WHERE IdGenero = " +id;
 
                 //Abre a conexão com o bd
                 con.Open();
 
                 SqlDataReader rdr;
 
+                using (SqlCommand cmd = new SqlCommand(querySelectById, con))
+                {
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        generoEncontrado.IdGenero = Convert.ToInt32(rdr[0]);
+                        generoEncontrado.Nome = rdr[1].ToString();
+                    }
+                    
+                }
+            }
+            return generoEncontrado;
+        }
+        */
 
-            } */
-            throw new NotImplementedException();
+
+
+        //feito pelo professor
+        public GeneroDomain BuscarPorId(int id)
+        {
+            GeneroDomain generoEncontrado = new GeneroDomain();
+
+            //Declara a SqlConnection passando a string de conexão como parâmetro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                
+                  //Declara instrução a ser executada
+                string querySelectById = "SELECT IdGenero, Nome FROM Genero WHERE IdGenero = @IdGenero";
+
+                SqlDataReader rdr;
+
+                using(SqlCommand cmd = new SqlCommand(querySelectById,con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", id);
+
+                    con.Open();
+
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        generoEncontrado.IdGenero = Convert.ToInt32(rdr["IdGenero"]);
+                        generoEncontrado.Nome = rdr["Nome"].ToString();
+                        return generoEncontrado;
+                    }
+                    
+
+                }
+
+            }
+            return null;
         }
 
-
-        /// <summary>
-        /// Cadastrar um novo genero
-        /// </summary>
-        /// <param name="novoGenero">Objeto com as informacoes que serao cadastrado</param>
-        public void Cadastrar(GeneroDomain novoGenero)
-        {
+                /// <summary>
+                /// Cadastrar um novo genero
+                /// </summary>
+                /// <param name="novoGenero">Objeto com as informacoes que serao cadastrado</param>
+            public void Cadastrar(GeneroDomain novoGenero)
+            {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declaramos a query que será executada
@@ -78,24 +151,33 @@ namespace webapi.filmes.tarde.Repositories
 
 
 
-    public void Deletar(int id)
+        public void Deletar(int id)
         {
-            GeneroDomain generoDeletar= new GeneroDomain();
 
             using(SqlConnection con = new SqlConnection(StringConexao))
             {
+                //1º
                 //Declaramos a query que será executada
-                string queryDelete = "DELETE FROM Genero WHERE IdGenero = " + id;
+                //string queryDelete = "DELETE FROM Genero WHERE IdGenero = " + id;
 
+                //Declaramos a query que será executada
+                string queryDelete = "DELETE FROM Genero WHERE IdGenero = @IdGenero";
+
+                //1º
                 //Declara o SqlDataReader para percorrer(ler) a tabela no banco de dados 
-                SqlDataReader rdr;
+                //SqlDataReader rdr;
 
                 using (SqlCommand cmd = new(queryDelete,con))
                 {
                     //Abre conexao com o bd
                     con.Open();
 
-                    rdr = cmd.ExecuteReader();
+                    //1º jeito
+                    //rdr = cmd.ExecuteReader();
+
+                    cmd.Parameters.AddWithValue("IdGenero", id);
+
+                    cmd.ExecuteNonQuery();
                 }
             }
         }
