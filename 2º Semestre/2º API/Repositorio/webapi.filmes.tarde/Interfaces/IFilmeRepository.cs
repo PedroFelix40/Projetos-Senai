@@ -15,9 +15,9 @@ namespace webapi.filmes.tarde.Interfaces
         void Cadastrar(FilmeDomain novoFilme);
 
         /// <summary>
-        /// Retornar todos os gêneros cadastrados
+        /// Retornar todos os filmes cadastrados
         /// </summary>
-        /// <returns>Retorna uma lista de gêneros</returns>
+        /// <returns>Retorna uma lista de filmes</returns>
         List<FilmeDomain> ListarTodos();
 
         /// <summary>

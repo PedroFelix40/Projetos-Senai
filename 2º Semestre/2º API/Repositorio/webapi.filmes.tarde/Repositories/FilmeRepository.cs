@@ -1,10 +1,13 @@
-﻿using webapi.filmes.tarde.Domains;
+﻿using System.Data.SqlClient;
+using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 
 namespace webapi.filmes.tarde.Repositories
 {
     public class FilmeRepository : IFilmeRepository
     {
+        private string StringConexao = "Data Source = DESKTOP-2B634JF; Initial Catalog = FilmesTarde; User Id = sa; Pwd = Senai@134";
+
         public void AtualizarIdCorpo(FilmeDomain filme)
         {
             throw new NotImplementedException();
@@ -32,7 +35,36 @@ namespace webapi.filmes.tarde.Repositories
 
         public List<FilmeDomain> ListarTodos()
         {
-            throw new NotImplementedException();
+            //cria uma lista onde será guardado os filmes
+            List<FilmeDomain> ListaFilmes = new List<FilmeDomain>();
+
+            using(SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string querySelectAll = "SELECT IdFilme, IdGenero, Titulo FROM Filme";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using(SqlCommand cmd = new SqlCommand(querySelectAll, con))
+                {
+                    rdr = cmd.ExecuteReader();
+
+                    while(rdr.Read())
+                    {
+                        FilmeDomain filme = new FilmeDomain()
+                        {
+                            IdFilme = Convert.ToInt32(rdr[0]),
+
+                            IdGenero = Convert.ToInt32(rdr[1]),
+
+                            Titulo = rdr[2].ToString()
+                        };
+                        ListaFilmes.Add(filme);
+                    }
+                }
+            }
+            return ListaFilmes;
         }
     }
 }

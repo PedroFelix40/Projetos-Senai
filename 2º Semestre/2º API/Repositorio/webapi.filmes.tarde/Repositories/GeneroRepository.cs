@@ -17,32 +17,44 @@ namespace webapi.filmes.tarde.Repositories
         private string StringConexao = "Data Source = DESKTOP-2B634JF; Initial Catalog = FilmesTarde; User Id = sa; Pwd = Senai@134";
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                //Declara instruçao
+                string queryUpdateIdBody = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateIdBody, con))
+                {
+                    cmd.Parameters.AddWithValue("@IdGenero", genero.IdGenero);
+
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void AtualizarIdUrl(int id, GeneroDomain genero)
         {
-            using(SqlConnection con = new SqlConnection(StringConexao))
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 string atualizarUrl = "UPDATE Genero SET Nome = @Nome WHERE IdGenero = @IdGenero";
 
-                SqlDataReader rdr;
 
                 con.Open();
 
-                using(SqlCommand cmd = new SqlCommand(atualizarUrl, con))
+                using (SqlCommand cmd = new SqlCommand(atualizarUrl, con))
                 {
                     cmd.Parameters.AddWithValue("@IdGenero", id);
 
                     cmd.Parameters.AddWithValue("@Nome", genero.Nome);
 
-                 
-
                     cmd.ExecuteNonQuery();
                 }
-             }
-         }
-            
+            }
+        }
+
 
 
         /// <summary>
@@ -92,13 +104,13 @@ namespace webapi.filmes.tarde.Repositories
             //Declara a SqlConnection passando a string de conexão como parâmetro
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                
-                  //Declara instrução a ser executada
+
+                //Declara instrução a ser executada
                 string querySelectById = "SELECT IdGenero, Nome FROM Genero WHERE IdGenero = @IdGenero";
 
                 SqlDataReader rdr;
 
-                using(SqlCommand cmd = new SqlCommand(querySelectById,con))
+                using (SqlCommand cmd = new SqlCommand(querySelectById, con))
                 {
                     cmd.Parameters.AddWithValue("@IdGenero", id);
 
@@ -112,7 +124,7 @@ namespace webapi.filmes.tarde.Repositories
                         generoEncontrado.Nome = rdr["Nome"].ToString();
                         return generoEncontrado;
                     }
-                    
+
 
                 }
 
@@ -120,12 +132,12 @@ namespace webapi.filmes.tarde.Repositories
             return null;
         }
 
-                /// <summary>
-                /// Cadastrar um novo genero
-                /// </summary>
-                /// <param name="novoGenero">Objeto com as informacoes que serao cadastrado</param>
-            public void Cadastrar(GeneroDomain novoGenero)
-            {
+        /// <summary>
+        /// Cadastrar um novo genero
+        /// </summary>
+        /// <param name="novoGenero">Objeto com as informacoes que serao cadastrado</param>
+        public void Cadastrar(GeneroDomain novoGenero)
+        {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //Declaramos a query que será executada
@@ -146,15 +158,15 @@ namespace webapi.filmes.tarde.Repositories
             }
 
         }
-    /// <inheritdoc/>
-    
+        /// <inheritdoc/>
+
 
 
 
         public void Deletar(int id)
         {
 
-            using(SqlConnection con = new SqlConnection(StringConexao))
+            using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 //1º
                 //Declaramos a query que será executada
@@ -167,7 +179,7 @@ namespace webapi.filmes.tarde.Repositories
                 //Declara o SqlDataReader para percorrer(ler) a tabela no banco de dados 
                 //SqlDataReader rdr;
 
-                using (SqlCommand cmd = new(queryDelete,con))
+                using (SqlCommand cmd = new(queryDelete, con))
                 {
                     //Abre conexao com o bd
                     con.Open();
@@ -181,7 +193,7 @@ namespace webapi.filmes.tarde.Repositories
                 }
             }
         }
-        
+
         /// <summary>
         /// Listar todos os objetos do tipo genero
         /// </summary>
@@ -189,7 +201,7 @@ namespace webapi.filmes.tarde.Repositories
         public List<GeneroDomain> ListarTodos()
         {
             //Cria uma lista de generos, onde será armazenados os generos
-            List<GeneroDomain> ListaGeneros= new List<GeneroDomain>();
+            List<GeneroDomain> ListaGeneros = new List<GeneroDomain>();
 
             //Declara a SqlConnection passando a string de conexão como parâmetro
             using (SqlConnection con = new SqlConnection(StringConexao))
@@ -210,7 +222,7 @@ namespace webapi.filmes.tarde.Repositories
                     rdr = cmd.ExecuteReader();
 
                     //Enquanto houver resgistros à serem lidos no rdr o laço se repetirá
-                    while(rdr.Read()) 
+                    while (rdr.Read())
                     {
                         //Instancia um objeto do tipo GeneroDOmain
                         GeneroDomain genero = new GeneroDomain()
@@ -227,9 +239,9 @@ namespace webapi.filmes.tarde.Repositories
                     }
                 }
             }
-                //Retorna a lista de generos 
-                return ListaGeneros;
+            //Retorna a lista de generos 
+            return ListaGeneros;
         }
-        
+
     }
 }

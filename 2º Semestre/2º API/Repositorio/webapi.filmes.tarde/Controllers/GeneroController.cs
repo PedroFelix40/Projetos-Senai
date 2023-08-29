@@ -165,9 +165,23 @@ namespace webapi.filmes.tarde.Controllers
         {
             try
             {
-                _generoRepository.AtualizarIdUrl(id, genero);
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(genero.IdGenero);
+                if (generoBuscado != null)
+                {
+                    try
+                    {
+                        _generoRepository.AtualizarIdUrl(id, genero);
 
-                return Ok();
+                        return NoContent();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        return BadRequest(erro.Message);
+                    }
+
+                }
+                return NotFound("Genero não encontrado");
             }
             catch (Exception erro)
             {
@@ -175,5 +189,36 @@ namespace webapi.filmes.tarde.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+        [HttpPut]
+        public IActionResult PutByBody(GeneroDomain genero)
+        {
+            try
+            {
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(genero.IdGenero);
+                if (generoBuscado != null)
+                {
+                    try
+                    {
+                        _generoRepository.AtualizarIdCorpo(genero);
+
+                        return NoContent();
+                    }
+                    catch (Exception erro)
+                    {
+
+                        return BadRequest(erro.Message);
+                    }
+                    
+                }
+                return NotFound("Genero não encontrado");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+
     }
 }

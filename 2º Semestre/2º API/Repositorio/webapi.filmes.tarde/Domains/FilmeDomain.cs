@@ -9,7 +9,7 @@ namespace webapi.filmes.tarde.Domains
     {
         public int IdFilme { get; set; }
         [Required(ErrorMessage = "O titulo do filme é obrigatório")]
-        public string? TituloFilme { get; set; }
+        public string? Titulo { get; set; }
         public int IdGenero { get; set; }
         
         //Referência para  classe Genero
