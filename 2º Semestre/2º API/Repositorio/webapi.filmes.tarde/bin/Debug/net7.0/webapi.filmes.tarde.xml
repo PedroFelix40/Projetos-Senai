@@ -137,6 +137,12 @@
             </summary>
             <param name="id">id do obj a ser deletado</param>
         </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.Cadastrar(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Cadastrar um novo filme
+            </summary>
+            <param name="novoGenero">Objeto com as informacoes que serao cadastrado</param>
+        </member>
         <member name="F:webapi.filmes.tarde.Repositories.GeneroRepository.StringConexao">
             <summary>
             String de conexão com o banco de dados que recebe os seguintes parâmetros:

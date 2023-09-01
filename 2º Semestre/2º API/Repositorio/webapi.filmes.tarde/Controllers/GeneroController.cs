@@ -165,7 +165,7 @@ namespace webapi.filmes.tarde.Controllers
         {
             try
             {
-                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(genero.IdGenero);
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
                 if (generoBuscado != null)
                 {
                     try
