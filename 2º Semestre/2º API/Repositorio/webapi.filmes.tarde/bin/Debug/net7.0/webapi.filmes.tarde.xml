@@ -45,6 +45,13 @@
             </summary>
             <returns>status code</returns>
         </member>
+        <member name="T:webapi.filmes.tarde.Controllers.UsuarioController">
+            <summary>
+            Define que a rota de uma requisição será no seguinte formato
+            dominio/api/nomeController
+            exemplo: http://localhost:5000/api/Genero
+            </summary>
+        </member>
         <member name="T:webapi.filmes.tarde.Domains.FilmeDomain">
             <summary>
             Classe que representa a entidade(tabela) filme
@@ -53,6 +60,11 @@
         <member name="T:webapi.filmes.tarde.Domains.GeneroDomain">
             <summary>
             Classe que representa a entidade(tabela) Genero
+            </summary>
+        </member>
+        <member name="T:webapi.filmes.tarde.Domains.UsuarioDomain">
+            <summary>
+            Classe que representa a entidade(tabela) Filme
             </summary>
         </member>
         <member name="M:webapi.filmes.tarde.Interfaces.IFilmeRepository.Cadastrar(webapi.filmes.tarde.Domains.FilmeDomain)">
@@ -136,6 +148,14 @@
             Deletar um genero existente
             </summary>
             <param name="id">id do obj a ser deletado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Método que busca um usuário por email e senha
+            </summary>
+            <param name="email"></param>
+            <param name="senha"></param>
+            <returns>Objeto que foi buscado</returns>
         </member>
         <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.Cadastrar(webapi.filmes.tarde.Domains.FilmeDomain)">
             <summary>
