@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
@@ -23,6 +24,8 @@ namespace webapi.filmes.tarde.Controllers
     /// Define que o tipo de resposta da API é JSON
     /// </summary>
     [Produces("application/json")]
+
+
     public class GeneroController : ControllerBase
     {
         /// <summary>
@@ -44,6 +47,7 @@ namespace webapi.filmes.tarde.Controllers
         /// </summary>
         /// <returns>Lista de generos e um status code</returns>
         [HttpGet]
+        [Authorize] // Precisa estar logado para acessar a lista
         public IActionResult Get()
         {
             try
@@ -67,6 +71,7 @@ namespace webapi.filmes.tarde.Controllers
         /// </summary>
         /// <returns>status code</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(GeneroDomain novoGenero)
         {
             try
