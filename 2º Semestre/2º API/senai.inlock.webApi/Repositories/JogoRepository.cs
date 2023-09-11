@@ -7,9 +7,8 @@ namespace senai.inlock.webApi.Repositories
     public class JogoRepository : IJogoRepository
     {
 
-        // ARRUMAR A STRING DE CONEXÃO
-        //public string StringConexao = "Data Source = DESKTOP-2B634JF; Initial Catalog = inlock_games_tarde; User Id = sa; Pwd = Senai@134";
-        public string StringConexao = "Data Source = DESKTOP-1CNOHAQ\\SQLEXPRESS; Initial Catalog = inlock_games_tarde; Integrated Security = true";
+        public string StringConexao = "Data Source = DESKTOP-2B634JF; Initial Catalog = inlock_games_tarde; User Id = sa; Pwd = Senai@134";
+        //public string StringConexao = "Data Source = DESKTOP-1CNOHAQ\\SQLEXPRESS; Initial Catalog = inlock_games_tarde; Integrated Security = true";
 
         public void Cadastrar(JogoDomain novoJogo)
         {
