@@ -8,26 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\48746019871\\.nuget\\packages\\": {}
+    "C:\\Users\\Predo Gabirel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\POO\\Exercicio POO\\Exercício - 2\\Exercício - 2.csproj",
+      "projectUniqueName": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\1° Semestre\\POO\\Exercicio POO\\Exercício - 2\\Exercício - 2.csproj",
       "projectName": "Exercício - 2",
-      "projectPath": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\POO\\Exercicio POO\\Exercício - 2\\Exercício - 2.csproj",
-      "packagesPath": "C:\\Users\\48746019871\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\1° Semestre\\POO\\Exercicio POO\\Exercício - 2\\obj\\",
+      "projectPath": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\1° Semestre\\POO\\Exercicio POO\\Exercício - 2\\Exercício - 2.csproj",
+      "packagesPath": "C:\\Users\\Predo Gabirel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\1° Semestre\\POO\\Exercicio POO\\Exercício - 2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\48746019871\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Predo Gabirel\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

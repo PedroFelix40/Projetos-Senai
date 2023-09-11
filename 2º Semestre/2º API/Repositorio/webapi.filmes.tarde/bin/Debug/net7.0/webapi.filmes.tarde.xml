@@ -194,5 +194,8 @@
             </summary>
             <returns>Lista de objetos do tipo genero</returns>
         </member>
+        <member name="F:webapi.filmes.tarde.Repositories.UsuarioRepository.StringConexao">
+            private string StringConexao = "Data Source = DESKTOP-2B634JF; Initial Catalog = FilmesTarde; User Id = sa; Pwd = Senai@134";
+        </member>
     </members>
 </doc>

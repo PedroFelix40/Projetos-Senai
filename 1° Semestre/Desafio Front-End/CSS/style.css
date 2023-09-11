@@ -15,11 +15,76 @@
     height: 100%;
 }
 
+.alinhamento-between-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
 
 /*header*/
 
-header {}
+header {
+    margin-top: 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
 
-.section1 {
-    background-image: url(../assents/);
+header .logo {
+    font-size: 35px;
+}
+
+header nav {
+    width: 325px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav a {
+    font-size: 15px;
+}
+
+header input {
+    width: 460px;
+    height: 50px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+header .icons {
+    height: 50px;
+    width: 160px;
+}
+
+header .icons img {
+    height: 50px;
+    width: 50px;
+}
+
+
+/*MAIN*/
+
+main .section1 {
+    background-color: blue;
+    height: 720px;
+}
+
+main .section1 .logo {
+    height: 650px;
+}
+
+.section2 {
+    background-color: blueviolet;
+    height: 301px;
+}
+
+.section3 {
+    background-color: black;
+    height: 771px;
 }

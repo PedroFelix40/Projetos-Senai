@@ -15,13 +15,21 @@
             <summary>
             EndPoint q acessa o metodo listar jogos
             </summary>
-            <returns>Lista de generos e um status code</returns>
+            <returns>Lista de Jogos e um status code</returns>
         </member>
         <member name="M:senai.inlock.webApi.Controllers.JogoController.Post(senai.inlock.webApi.Domains.JogoDomain)">
             <summary>
-            EndPoint q acessa o metodo cadastrar
+            EndPoint que acessa o método cadastrar
             </summary>
-            <returns>Lista de generos e um status code</returns>
+            <param name="novoJogo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:senai.inlock.webApi.Controllers.UsuarioController">
+            <summary>
+            Define que a rota de uma requisição será no seguinte formato
+            dominio/api/nomeController
+            exemplo: http://localhost:5000/api/Genero
+            </summary>
         </member>
         <member name="T:senai.inlock.webApi.Domains.JogoDomain">
             <summary>

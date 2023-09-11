@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domains;
 using senai.inlock.webApi.Interface;
@@ -22,6 +23,7 @@ namespace senai.inlock.webApi.Controllers
     /// Define que o tipo de resposta da API é JSON
     /// </summary>
     [Produces("application/json")]
+    [Authorize]
     public class JogoController : ControllerBase
     {
         private IJogoRepository _jogoRepository { get; set; }
@@ -45,10 +47,10 @@ namespace senai.inlock.webApi.Controllers
 
                 return Ok(listaJogo);
             }
-            catch (Exception)
+            catch (Exception erro)
             {
 
-                throw;
+                return BadRequest(erro.Message);
             }
         }
 
@@ -58,6 +60,7 @@ namespace senai.inlock.webApi.Controllers
         /// <param name="novoJogo"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(JogoDomain novoJogo)
         {
             try
