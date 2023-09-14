@@ -1,6 +1,6 @@
-USE inlock_games;
+USE inlock_games_codeFirst_tarde;
 
-SELECT * FROM TiposUsuario;
+SELECT * FROM TipoUsuario;
 
 SELECT * FROM Usuario;
 
