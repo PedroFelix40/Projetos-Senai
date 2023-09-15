@@ -36,6 +36,18 @@
             Classe que representa a entidade(tabela) Jogo
             </summary>
         </member>
+        <member name="M:senai.inlock.webApi.Interface.IEstudioRepository.Cadastrar(senai.inlock.webApi.Domains.EstudioDomain)">
+            <summary>
+            Cadastra um novo genero
+            </summary>
+            <param name="novoEstudio"></param>
+        </member>
+        <member name="M:senai.inlock.webApi.Interface.IEstudioRepository.Listar">
+            <summary>
+            Lista todos os estudios e seus respectivos jogos
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:senai.inlock.webApi.Interface.IJogoRepository.Cadastrar(senai.inlock.webApi.Domains.JogoDomain)">
             <summary>
             Cadastra um novo jogo
