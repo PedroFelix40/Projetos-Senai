@@ -42,7 +42,7 @@ namespace webapi.inlock_CodeFirst.Controllers
                     //formato da claim(tipo, valor)
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
-                   // new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario.Titulo),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario.Titulo),
                     new Claim("Claim Personalizada", "Valor Personalizado")
                 };
 

@@ -1,4 +1,5 @@
 ﻿using Azure.Core;
+using Microsoft.EntityFrameworkCore;
 using webapi.inlock_CodeFirst.Contexts;
 using webapi.inlock_CodeFirst.Domains;
 using webapi.inlock_CodeFirst.Interface;
@@ -35,7 +36,7 @@ namespace webapi.inlock_CodeFirst.Repositories
         {
             try
             {
-                var usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.Email == email);
+                var usuarioBuscado = ctx.Usuario.Include(u => u.TipoUsuario).FirstOrDefault(u => u.Email == email);
 
                 if (usuarioBuscado != null)
                 {
