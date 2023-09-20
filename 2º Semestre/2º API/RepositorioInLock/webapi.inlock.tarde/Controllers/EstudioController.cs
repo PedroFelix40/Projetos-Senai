@@ -96,7 +96,7 @@ namespace webapi.inlock.tarde.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}")    ]
         public IActionResult Put(Guid id,Estudio estudio)
         {
             try

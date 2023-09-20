@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vpJJmt4xhwIOJ/LAEcYqbM9kUZAqOJgqhRooBLTIE5U3F3mpOimtOwonoRN4iaxWjhOHLXBcJOBnh7XroGa9Ag==",
+  "dgSpecHash": "G9jucs/D78RlzA8tj/Qj5TTIY69WujpAqrAfSucYKduTPSRixnHXAAHsYd3vPqbOucwY9rrsGM0jUQZqrLF+5g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\2º Semestre\\2º API\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
+  "projectFilePath": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\2º Semestre\\2º API\\RepositorioInLock\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\48746019871\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\48746019871\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
