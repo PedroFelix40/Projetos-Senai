@@ -4,9 +4,84 @@
         <name>webapi.event+.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Put(System.Guid,webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="instituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.GetById(System.Guid)">
+            <summary>
+            EndPoint buscarPorId
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Post(webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            EndPoint cadastrar
+            </summary>
+            <param name="instituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Get">
+            <summary>
+            EndPoint Listar
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Put(System.Guid,webapi.event_.tarde.Domains.TipoEvento)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Put(System.Guid,webapi.event_.tarde.Domains.TipoUsuario)">
             <summary>
-            EndPoint para atualizar
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.GetById(System.Guid)">
+            <summary>
+            EndPoint GetById
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Post(webapi.event_.tarde.Domains.TipoUsuario)">
+            <summary>
+            EndPoint Cadastrar
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Get">
+            <summary>
+            EndPoint Listar
             </summary>
             <param name="id"></param>
             <param name="tipoUsuario"></param>
