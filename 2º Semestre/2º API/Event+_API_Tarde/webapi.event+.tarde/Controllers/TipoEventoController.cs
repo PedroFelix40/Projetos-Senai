@@ -21,9 +21,6 @@ namespace webapi.event_.tarde.Controllers
         /// <summary>
         /// EndPoint Atualizar
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="tipoUsuario"></param>
-        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, TipoEvento tipoEvento)
         {
@@ -46,13 +43,22 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
-
+        /// <summary>
+        /// EndPoint BuscarPorId
+        /// </summary>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
             try
             {
-                return Ok(_tipoEventoRepository.BuscarPorId(id));
+                TipoEvento tipoEventoBuscado = _tipoEventoRepository.BuscarPorId(id);
+
+                if (tipoEventoBuscado == null)
+                {
+                    return NotFound("Usuario não encontrado!");
+                }
+
+                return Ok(tipoEventoBuscado);
             }
             catch (Exception e)
             {
@@ -60,6 +66,9 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Cadastrar
+        /// </summary>
         [HttpPost]
         public IActionResult Post(TipoEvento tipoEvento)
         {
@@ -75,6 +84,9 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Deletar
+        /// </summary>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -97,6 +109,9 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Listar
+        /// </summary>
         [HttpGet]
         public IActionResult Get()
         {

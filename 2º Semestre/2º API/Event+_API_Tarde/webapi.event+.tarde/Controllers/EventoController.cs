@@ -9,33 +9,36 @@ namespace webapi.event_.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class InstituicaoController : ControllerBase
+    public class EventoController : ControllerBase
     {
-        private IInstituicaoRepository _instituicaoRepository;
+        private IEventoRepository _eventoRepository;
 
-        public InstituicaoController()
+        public EventoController()
         {
-            _instituicaoRepository = new InstituicaoRepository();
+            _eventoRepository = new EventoRepository();
         }
 
         /// <summary>
         /// EndPoint Atualizar
         /// </summary>
+        /// <param name="id"></param>
+        /// <param name="evento"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, Instituicao instituicao)
+        public IActionResult Put(Guid id, Evento evento)
         {
             try
             {
-                Instituicao instituicaoBuscada = _instituicaoRepository.BuscarPorId(id);
+                Evento eventoBuscado = _eventoRepository.BuscarPorId(id);
 
-                if (instituicaoBuscada == null)
+                if (eventoBuscado == null)
                 {
-                    return NotFound("Instituição não encontrada");
+                    return NotFound("Usuario não encontrado");
                 }
 
-                _instituicaoRepository.Atualizar(id, instituicao);
+                _eventoRepository.Atualizar(id,evento);
 
-                return Ok(instituicao);
+                return Ok(evento);
             }
             catch (Exception e)
             {
@@ -45,20 +48,23 @@ namespace webapi.event_.tarde.Controllers
         }
 
         /// <summary>
-        /// EndPoint buscarPorId
+        /// EndPoint BuscarPorId
         /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
             try
             {
-                Instituicao instituicaoBuscada = _instituicaoRepository.BuscarPorId(id);
+                Evento eventoBuscado = _eventoRepository.BuscarPorId(id);
 
-                if (instituicaoBuscada == null)
+                if (eventoBuscado == null)
                 {
-                    return NotFound("Instituição não encontrada");
+                    return NotFound("Usuario não encontrado");
                 }
-                return Ok(instituicaoBuscada);
+
+                return Ok(eventoBuscado);
             }
             catch (Exception e)
             {
@@ -68,16 +74,18 @@ namespace webapi.event_.tarde.Controllers
         }
 
         /// <summary>
-        /// EndPoint cadastrar
+        /// EndPoint Cadastrar
         /// </summary>
+        /// <param name="evento"></param>
+        /// <returns></returns>
         [HttpPost]
-        public IActionResult Post(Instituicao instituicao)
+        public IActionResult Post(Evento evento)
         {
             try
             {
-                _instituicaoRepository.Cadastrar(instituicao);
+                _eventoRepository.Cadastrar(evento);
 
-                return Ok(instituicao);
+                return Ok(evento);
             }
             catch (Exception e)
             {
@@ -89,21 +97,23 @@ namespace webapi.event_.tarde.Controllers
         /// <summary>
         /// EndPoint Deletar
         /// </summary>
-        [HttpDelete("{id}")]
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
         public IActionResult Delete(Guid id)
         {
             try
             {
-                Instituicao instituicaoBuscada = _instituicaoRepository.BuscarPorId(id);
+                Evento eventoBuscado = _eventoRepository.BuscarPorId(id);
 
-                if (instituicaoBuscada == null)
+                if (eventoBuscado == null)
                 {
-                    return NotFound("Instituição não encontrada");
+                    return NotFound("Usuario não encontrado");
                 }
 
-                _instituicaoRepository.Deletar(id);
+                _eventoRepository.Deletar(id);
 
-                return Ok("Instituição deletada");
+                return Ok("Evento deletado");
             }
             catch (Exception e)
             {
@@ -115,12 +125,13 @@ namespace webapi.event_.tarde.Controllers
         /// <summary>
         /// EndPoint Listar
         /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
             try
             {
-                return Ok(_instituicaoRepository.Listar());
+                return Ok(_eventoRepository.Listar());
             }
             catch (Exception e)
             {

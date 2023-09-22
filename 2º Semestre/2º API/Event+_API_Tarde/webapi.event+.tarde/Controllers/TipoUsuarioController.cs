@@ -29,6 +29,13 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
+                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(id);
+
+                if (tipoUsuarioBuscado == null)
+                {
+                    return NotFound("Tipo de usuario não encontrado!");
+                }
+
                 _tipoUsuarioRepository.Atualizar(id, tipoUsuario);
                 
                 return Ok("Tipo usuario atualizado com sucesso!");
@@ -54,7 +61,13 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                return Ok(_tipoUsuarioRepository.BuscarPorId(id));
+                TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(id);
+
+                if (tipoUsuarioBuscado == null)
+                {
+                    return NotFound("Tipo de usuario não encontrado!");
+                }
+                return Ok(tipoUsuarioBuscado);
 
             }
             catch (Exception e)
@@ -95,6 +108,13 @@ namespace webapi.event_.tarde.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
+            TipoUsuario tipoUsuarioBuscado = _tipoUsuarioRepository.BuscarPorId(id);
+
+            if (tipoUsuarioBuscado == null)
+            {
+                return NotFound("Tipo de usuario não encontrado!");
+            }
+
             _tipoUsuarioRepository.Deletar(id);
 
             return Ok("Tipo de usuario deletado");

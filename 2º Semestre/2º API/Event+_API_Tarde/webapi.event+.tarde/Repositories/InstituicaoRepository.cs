@@ -17,7 +17,7 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                Instituicao instituicaoBuscada = _eventContext.Instituicao.Find(id)!;
+                Instituicao instituicaoBuscada = _eventContext.Instituicao.FirstOrDefault(i => i.IdInstituicao == id)!;
 
                 if (instituicaoBuscada != null)
                 {
@@ -38,7 +38,7 @@ namespace webapi.event_.tarde.Repositories
 
         public Instituicao BuscarPorId(Guid id)
         {
-            Instituicao instituicaoBuscada = _eventContext.Instituicao.Find(id)!;
+            Instituicao instituicaoBuscada = _eventContext.Instituicao.FirstOrDefault(i => i.IdInstituicao == id)!;
 
             return instituicaoBuscada;
 
@@ -64,7 +64,7 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                Instituicao instituicaoBuscada = _eventContext.Instituicao.Find(id);
+                Instituicao instituicaoBuscada = _eventContext.Instituicao.FirstOrDefault(i => i.IdInstituicao == id)!;
 
                 if (instituicaoBuscada != null)
                 {

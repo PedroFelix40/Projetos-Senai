@@ -18,6 +18,9 @@ namespace webapi.event_.tarde.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// EndPoint Cadastrar
+        /// </summary>
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -35,12 +38,22 @@ namespace webapi.event_.tarde.Controllers
 
         }
 
+        /// <summary>
+        /// EndPoint BuscarPorId
+        /// </summary>
         [HttpGet("{id}")]
         public IActionResult GetById(Guid id)
         {
             try
             {
-                return Ok(_usuarioRepository.BuscarPorId(id));
+                Usuario usuarioBuscado = _usuarioRepository.BuscarPorId(id);
+
+                if (usuarioBuscado == null)
+                {
+                    return NotFound("Usuario não encontrado!");
+                }
+
+                return Ok(usuarioBuscado);
             }
             catch (Exception e)
             {
@@ -50,6 +63,9 @@ namespace webapi.event_.tarde.Controllers
 
         }
 
+        /// <summary>
+        /// EndPoint Atualizar
+        /// </summary>
         [HttpGet]
         public IActionResult Get()
         {
