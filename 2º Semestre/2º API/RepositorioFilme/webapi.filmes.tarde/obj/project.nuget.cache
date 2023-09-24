@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AITsaIrK0AT/GhXgisUfbhBgDjFmCqnsvZ7KBgx+KziBvKMdiL/62bqpIJIlbkVgnkMNYYTGkxi77at+jMX0Ag==",
+  "dgSpecHash": "amqbVlgBRTG/+q1pvSK24wvgn5Io43KduLxZ4xY7nfkIvIwzajKDMtdWs38msCIxrOQ2cpzS4O7KW5BXI5eSoQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\2º Semestre\\2º API\\Repositorio\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
+  "projectFilePath": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\2º Semestre\\2º API\\RepositorioFilme\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Predo Gabirel\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.10\\microsoft.aspnetcore.authentication.jwtbearer.7.0.10.nupkg.sha512",
     "C:\\Users\\Predo Gabirel\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -15,7 +15,9 @@ namespace webapi.event_.tarde.Contexts
         public DbSet<PresencaEvento> PresencaEvento { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-2B634JF; Database=event+_tarde; User Id= sa; Pwd = Senai@134; TrustServerCertificate=True;");
+            //DESKTOP-1CNOHAQ\\SQLEXPRESS; Initial Catalog = inlock_games_tarde; Integrated Security = true
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-2B634JF; Database=event+_tarde; User Id= sa; Pwd = Senai@134; TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-1CNOHAQ\\SQLEXPRESS; Database=event+_tarde; Integrated Security = true; TrustServerCertificate=True;");
             base.OnConfiguring(optionsBuilder);
         }
     }

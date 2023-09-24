@@ -9,42 +9,34 @@ namespace webapi.event_.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class PresencaEventoController : ControllerBase
+    public class ComentarioEventoController : ControllerBase
     {
-        private IPresencaEventoRepository _presencaEventoRepository;
+        private IComentarioEventoRepository _comentarioEventoRepository;
 
-        public PresencaEventoController()
+        public ComentarioEventoController()
         {
-            _presencaEventoRepository = new PresencaEventoRepository();
+            _comentarioEventoRepository = new ComentarioEventoRepository();
         }
 
         /// <summary>
         /// EndPoint Atualizar
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="presencaEvento"></param>
+        /// <param name="comentarioEvento"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, PresencaEvento presencaEvento)
+        public IActionResult Put(Guid id, ComentarioEvento comentarioEvento)
         {
-            try
+            ComentarioEvento comentarioBuscado = _comentarioEventoRepository.BuscarPorId(id);
+
+            if (comentarioBuscado == null)
             {
-                PresencaEvento presencaEventoBuscado = _presencaEventoRepository.BuscarPorId(id);
-
-                if (presencaEventoBuscado == null)
-                {
-                    return NotFound("Presença evento não encontrada!");
-                }
-
-                _presencaEventoRepository.Atualizar(id, presencaEvento);
-
-                return Ok(presencaEvento);
+                return NotFound("Comentario não encontrado!");
             }
-            catch (Exception e)
-            {
 
-                return BadRequest(e.Message);
-            }
+            _comentarioEventoRepository.Atualizar(id, comentarioEvento);
+
+            return Ok(comentarioBuscado);
         }
 
         /// <summary>
@@ -57,14 +49,14 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                PresencaEvento presencaEventoBuscado = _presencaEventoRepository.BuscarPorId(id);
+                ComentarioEvento comentarioBuscado = _comentarioEventoRepository.BuscarPorId(id);
 
-                if (presencaEventoBuscado == null)
+                if (comentarioBuscado == null)
                 {
-                    return NotFound("Presença evento não encontrada!");
+                    return NotFound("Comentario não encontrado!");
                 }
 
-                return Ok(presencaEventoBuscado);
+                return Ok(_comentarioEventoRepository.BuscarPorId(id));
             }
             catch (Exception e)
             {
@@ -76,16 +68,16 @@ namespace webapi.event_.tarde.Controllers
         /// <summary>
         /// EndPoint Cadastrar
         /// </summary>
-        /// <param name="presencaEvento"></param>
+        /// <param name="comentario"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Post(PresencaEvento presencaEvento)
+        public IActionResult Post(ComentarioEvento comentario)
         {
             try
             {
-                _presencaEventoRepository.Cadastrar(presencaEvento);
+                _comentarioEventoRepository.Cadastrar(comentario);
 
-                return Ok(presencaEvento);
+                return Ok("Comentario cadastrado com sucesso!");
             }
             catch (Exception e)
             {
@@ -104,16 +96,16 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                PresencaEvento presencaEventoBuscado = _presencaEventoRepository.BuscarPorId(id);
+            ComentarioEvento comentarioBuscado = _comentarioEventoRepository.BuscarPorId(id);
 
-                if (presencaEventoBuscado == null)
-                {
-                    return NotFound("Presença evento não encontrada!");
-                }
+            if (comentarioBuscado == null)
+            {
+                return NotFound("Comentario não encontrado!");
+            }
 
-                _presencaEventoRepository.Deletar(id);
+            _comentarioEventoRepository.Deletar(id);
 
-                return Ok("Presença evento deletada!");
+            return Ok("Comentario deletado");
             }
             catch (Exception e)
             {
@@ -131,7 +123,7 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                return Ok(_presencaEventoRepository.Listar());
+                return Ok(_comentarioEventoRepository.Listar());
             }
             catch (Exception e)
             {
