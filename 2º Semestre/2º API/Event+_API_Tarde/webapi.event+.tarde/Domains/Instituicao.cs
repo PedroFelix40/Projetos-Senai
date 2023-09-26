@@ -13,7 +13,7 @@ namespace webapi.event_.tarde.Domains
 
         [Column(TypeName = "CHAR(14)")]
         [Required(ErrorMessage = "O CNPJ é obrigatório!")]
-        [StringLength(14)]
+                
         public string? CNPJ { get; set; }
 
         [Column(TypeName = "VARCHAR(200)")]
