@@ -64,7 +64,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         /// <summary>
-        /// EndPoint Atualizar
+        /// EndPoint Listar
         /// </summary>
         [HttpGet]
         public IActionResult Get()

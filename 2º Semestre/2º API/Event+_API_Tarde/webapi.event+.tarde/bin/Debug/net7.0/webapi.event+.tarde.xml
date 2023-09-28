@@ -4,6 +4,41 @@
         <name>webapi.event+.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Put(System.Guid,webapi.event_.tarde.Domains.ComentarioEvento)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="comentarioEvento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint BuscarPorId
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Post(webapi.event_.tarde.Domains.ComentarioEvento)">
+            <summary>
+            EndPoint Cadastrar
+            </summary>
+            <param name="comentario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Get">
+            <summary>
+            EndPoint Listar
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.EventoController.Put(System.Guid,webapi.event_.tarde.Domains.Evento)">
             <summary>
             EndPoint Atualizar
@@ -63,6 +98,41 @@
             <summary>
             EndPoint Listar
             </summary>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Put(System.Guid,webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="presencaEvento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.GetById(System.Guid)">
+            <summary>
+            EndPoint BuscarPorId
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Post(webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            EndPoint Cadastrar
+            </summary>
+            <param name="presencaEvento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Get">
+            <summary>
+            EndPoint Listar
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Put(System.Guid,webapi.event_.tarde.Domains.TipoEvento)">
             <summary>
@@ -141,7 +211,7 @@
         </member>
         <member name="M:webapi.event_.tarde.Controllers.UsuarioContoller.Get">
             <summary>
-            EndPoint Atualizar
+            EndPoint Listar
             </summary>
         </member>
         <member name="T:webapi.event_.tarde.Migrations.DB">

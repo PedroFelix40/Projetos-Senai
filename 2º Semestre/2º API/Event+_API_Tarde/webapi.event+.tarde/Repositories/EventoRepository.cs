@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿    using Microsoft.AspNetCore.Http.HttpResults;
 using webapi.event_.tarde.Contexts;
 using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
@@ -42,7 +42,27 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                Evento eventoBuscado = _eventContext.Evento.FirstOrDefault(e => e.IdEvento == id)!;
+                Evento eventoBuscado = _eventContext.Evento.Select(e => new Evento()
+                {
+                    IdEvento = e.IdEvento,
+                    NomeEvento = e.NomeEvento,
+                    DataEvento = e.DataEvento,
+                    Descricao = e.Descricao,
+
+                    TipoEvento = new()
+                    {
+                        IdTipoEvento = e.TipoEvento.IdTipoEvento,
+                        Titulo = e.TipoEvento.Titulo
+                    },
+
+                    Instituicao = new()
+                    {
+                        IdInstituicao = e.Instituicao.IdInstituicao,
+                        CNPJ = e.Instituicao.CNPJ,
+                        Endereco = e.Instituicao.Endereco,
+                        NomeFantasia = e.Instituicao.NomeFantasia
+                    }
+                }).FirstOrDefault(e => e.IdEvento == id)!;
 
                 return eventoBuscado;
             }
