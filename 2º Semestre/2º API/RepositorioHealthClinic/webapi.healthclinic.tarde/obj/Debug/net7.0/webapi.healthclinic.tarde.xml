@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>webapi.healthclinic.tarde</name>
+    </assembly>
+    <members>
+        <member name="T:webapi.healthclinic.tarde.Migrations.BD">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Migrations.BD.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Migrations.BD.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Ultils.Criptografia.GerarHash(System.String)">
+            <summary>
+            Gera uma hash a partir de uma senha 
+            </summary>
+            <param name="senha">senha que receberá a hash</param>
+            <returns>senha criptografada com a hash</returns>
+        </member>
+    </members>
+</doc>
