@@ -20,8 +20,8 @@ namespace webapi.healthclinic.tarde.Migrations
                     RazaoSocial = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     CNPJ = table.Column<string>(type: "CHAR(14)", maxLength: 14, nullable: false),
                     Endereco = table.Column<string>(type: "VARCHAR(200)", nullable: false),
-                    HoraAbertura = table.Column<TimeOnly>(type: "TIME", nullable: false),
-                    HoraFechamento = table.Column<TimeOnly>(type: "TIME", nullable: false)
+                    HoraAbertura = table.Column<TimeOnly>(type: "time", nullable: false),
+                    HoraFechamento = table.Column<TimeOnly>(type: "time", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -141,7 +141,7 @@ namespace webapi.healthclinic.tarde.Migrations
                     Telefone = table.Column<string>(type: "CHAR(9)", maxLength: 9, nullable: false),
                     RG = table.Column<string>(type: "CHAR(9)", maxLength: 9, nullable: false),
                     CPF = table.Column<string>(type: "CHAR(11)", maxLength: 11, nullable: false),
-                    Endereco = table.Column<string>(type: "VARCHAR(9)", nullable: false),
+                    Endereco = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -160,7 +160,7 @@ namespace webapi.healthclinic.tarde.Migrations
                 columns: table => new
                 {
                     IdConsulta = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Data = table.Column<DateTime>(type: "DATE", nullable: false),
+                    Data = table.Column<DateTime>(type: "date", nullable: false),
                     Prontuario = table.Column<string>(type: "TEXT", nullable: false),
                     IdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false)

@@ -7,6 +7,7 @@ namespace webapi.healthclinic.tarde.Domains
 {
     [Table(nameof(Clinica))]
     [Index(nameof(CNPJ), IsUnique = true)]
+    [Index(nameof(CNPJ), IsUnique = true)]
     public class Clinica
     {
         [Key]

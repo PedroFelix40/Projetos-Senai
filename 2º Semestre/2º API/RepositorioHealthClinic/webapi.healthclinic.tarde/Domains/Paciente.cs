@@ -30,7 +30,7 @@ namespace webapi.healthclinic.tarde.Domains
         [StringLength(11)]
         public string? CPF { get; set; }
 
-        [Column(TypeName = "VARCHAR(9)")]
+        [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "O endereço do paciente é obrigatório!")]
         public string? Endereco { get; set; }
 
