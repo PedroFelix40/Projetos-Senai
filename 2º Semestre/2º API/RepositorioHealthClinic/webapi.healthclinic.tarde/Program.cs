@@ -1,14 +1,21 @@
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        // Ignora os loopings nas consultas
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+        // Ignora valores nulos ao fazer junções nas consultas
+        options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+    }
+);
 
 //Adiciona serviço de autenticação JWT Bearer
 builder.Services.AddAuthentication(options =>
@@ -45,14 +52,19 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
 //Adiciona o gerador do Swagger à coleção de serviços no Program.cs
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "API Event+ Tarde",
-        Description = "API para gerenciamento de Eventos - API",
+
+        Title = "API Health Clinic",
+
+        Description = "API para gerenciamento de uma Clinica - API",
+
         Contact = new OpenApiContact
         {
             Name = "Pedro Felix - Senai Informatica",
@@ -72,7 +84,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "Bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Values: Bearer TokenJWT"
+        Description = "Value: Bearer TokenJWT"
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -110,7 +122,6 @@ app.UseSwaggerUI(options =>
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
 app.UseAuthentication();
 
 app.MapControllers();
