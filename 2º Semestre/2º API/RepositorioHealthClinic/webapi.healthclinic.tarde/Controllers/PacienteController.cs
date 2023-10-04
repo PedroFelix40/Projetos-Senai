@@ -18,6 +18,12 @@ namespace webapi.healthclinic.tarde.Controllers
             _pacienteRepository = new PacienteRepository();
         }
 
+        /// <summary>
+        /// EndPoint Atualizar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="paciente"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Paciente paciente)
         {
@@ -41,6 +47,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Cadastrar
+        /// </summary>
+        /// <param name="paciente"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Paciente paciente)
         {
@@ -57,6 +68,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Deletar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

@@ -18,6 +18,12 @@ namespace webapi.healthclinic.tarde.Controllers
             _especialidadeRepository = new EspecialidadeRepository();
         }
 
+        /// <summary>
+        /// EndPoint Atualizar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="especialidade"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Especialidade especialidade)
         {
@@ -41,6 +47,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Cadastrar
+        /// </summary>
+        /// <param name="especialidade"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Especialidade especialidade)
         {

@@ -18,6 +18,11 @@ namespace webapi.healthclinic.tarde.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// EndPoint Cadastrar
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Usuario usuario)
         {
@@ -33,6 +38,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Deletar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id) 
         {

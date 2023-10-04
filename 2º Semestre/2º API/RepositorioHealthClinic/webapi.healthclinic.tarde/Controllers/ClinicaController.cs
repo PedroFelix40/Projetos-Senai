@@ -19,6 +19,12 @@ namespace webapi.healthclinic.tarde.Controllers
             _clinicaRepository = new ClinicaRepository();
         }
 
+        /// <summary>
+        /// EndPoint Atualizar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="clinica"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Clinica clinica)
         {
@@ -41,6 +47,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Cadastar
+        /// </summary>
+        /// <param name="clinica"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Clinica clinica)
         {

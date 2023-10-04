@@ -18,7 +18,11 @@ namespace webapi.healthclinic.tarde.Controllers
             _consultaRepository = new ConsultaRepository();
         }
 
-   
+        /// <summary>
+        /// EndPoint Cadastar
+        /// </summary>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(Consulta consulta)
         {
@@ -35,6 +39,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Deletar
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -52,6 +61,10 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint Listar
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetAction()
         {
@@ -66,6 +79,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint ListarConsultasPacientes
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("consultaspaciente/{id}")]
         public IActionResult GetPaciente(Guid id)
         {
@@ -80,6 +98,11 @@ namespace webapi.healthclinic.tarde.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint ListarConsultasMedicos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("consultasmedico/{id}")]
         public IActionResult GetMedico(Guid id)
         {

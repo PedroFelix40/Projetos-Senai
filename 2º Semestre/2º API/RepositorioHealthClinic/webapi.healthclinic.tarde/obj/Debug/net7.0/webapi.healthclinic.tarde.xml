@@ -4,6 +4,149 @@
         <name>webapi.healthclinic.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ClinicaController.Put(System.Guid,webapi.healthclinic.tarde.Domains.Clinica)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="clinica"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ClinicaController.Post(webapi.healthclinic.tarde.Domains.Clinica)">
+            <summary>
+            EndPoint Cadastar
+            </summary>
+            <param name="clinica"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ComentarioController.Post(webapi.healthclinic.tarde.Domains.Comentario)">
+            <summary>
+            EndPoint Cadastrar
+            </summary>
+            <param name="comentario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ComentarioController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ConsultaController.Post(webapi.healthclinic.tarde.Domains.Consulta)">
+            <summary>
+            EndPoint Cadastar
+            </summary>
+            <param name="consulta"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ConsultaController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ConsultaController.GetAction">
+            <summary>
+            EndPoint Listar
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ConsultaController.GetPaciente(System.Guid)">
+            <summary>
+            EndPoint ListarConsultasPacientes
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.ConsultaController.GetMedico(System.Guid)">
+            <summary>
+            EndPoint ListarConsultasMedicos
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.EspecialidadeController.Put(System.Guid,webapi.healthclinic.tarde.Domains.Especialidade)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="especialidade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.EspecialidadeController.Post(webapi.healthclinic.tarde.Domains.Especialidade)">
+            <summary>
+            EndPoint Cadastrar
+            </summary>
+            <param name="especialidade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.LoginController.Login(webapi.healthclinic.tarde.ViewMoldels.LoginViewModel)">
+            <summary>
+            EndPoint Logar
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.MedicoController.Put(System.Guid,webapi.healthclinic.tarde.Domains.Medico)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="medico"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.MedicoController.Post(webapi.healthclinic.tarde.Domains.Medico)">
+            <summary>
+            EndPoint Cdastrar
+            </summary>
+            <param name="medico"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.MedicoController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.PacienteController.Put(System.Guid,webapi.healthclinic.tarde.Domains.Paciente)">
+            <summary>
+            EndPoint Atualizar
+            </summary>
+            <param name="id"></param>
+            <param name="paciente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.PacienteController.Post(webapi.healthclinic.tarde.Domains.Paciente)">
+            <summary>
+            EndPoint Cadastrar
+            </summary>
+            <param name="paciente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.PacienteController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.UsuarioController.Post(webapi.healthclinic.tarde.Domains.Usuario)">
+            <summary>
+            EndPoint Cadastrar
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.healthclinic.tarde.Controllers.UsuarioController.Delete(System.Guid)">
+            <summary>
+            EndPoint Deletar
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:webapi.healthclinic.tarde.Migrations.BD">
             <inheritdoc />
         </member>
