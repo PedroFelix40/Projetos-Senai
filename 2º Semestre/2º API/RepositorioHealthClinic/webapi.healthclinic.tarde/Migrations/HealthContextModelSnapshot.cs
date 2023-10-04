@@ -107,6 +107,8 @@ namespace webapi.healthclinic.tarde.Migrations
 
                     b.HasIndex("IdMedico");
 
+                    b.HasIndex("IdPaciente");
+
                     b.ToTable("Consulta");
                 });
 
@@ -286,7 +288,7 @@ namespace webapi.healthclinic.tarde.Migrations
 
                     b.HasOne("webapi.healthclinic.tarde.Domains.Paciente", "Paciente")
                         .WithMany()
-                        .HasForeignKey("IdMedico")
+                        .HasForeignKey("IdPaciente")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

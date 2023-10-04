@@ -11,6 +11,7 @@ namespace webapi.healthclinic.tarde.Domains
 
         [Column(TypeName = "DATE")]
         [Required(ErrorMessage = "A data da consulta é obrigatório!")]
+        [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Data { get; set; }
 
@@ -27,7 +28,7 @@ namespace webapi.healthclinic.tarde.Domains
         //ref. tabela medico
         [Required(ErrorMessage = "O usuario é obrigatório!")]
         public Guid IdPaciente { get; set; }
-        [ForeignKey(nameof(IdMedico))]
+        [ForeignKey(nameof(IdPaciente))]
         public Paciente? Paciente { get; set; }
 
 

@@ -175,8 +175,8 @@ namespace webapi.healthclinic.tarde.Migrations
                         principalColumn: "IdMedico",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Consulta_Paciente_IdMedico",
-                        column: x => x.IdMedico,
+                        name: "FK_Consulta_Paciente_IdPaciente",
+                        column: x => x.IdPaciente,
                         principalTable: "Paciente",
                         principalColumn: "IdPaciente",
                         onDelete: ReferentialAction.NoAction);
@@ -202,6 +202,11 @@ namespace webapi.healthclinic.tarde.Migrations
                 name: "IX_Consulta_IdMedico",
                 table: "Consulta",
                 column: "IdMedico");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Consulta_IdPaciente",
+                table: "Consulta",
+                column: "IdPaciente");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Especialidade_TipoEspecialidade",

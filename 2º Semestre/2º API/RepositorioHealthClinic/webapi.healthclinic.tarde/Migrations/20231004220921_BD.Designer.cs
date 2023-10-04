@@ -12,7 +12,7 @@ using webapi.healthclinic.tarde.Contexts;
 namespace webapi.healthclinic.tarde.Migrations
 {
     [DbContext(typeof(HealthContext))]
-    [Migration("20230929195119_BD")]
+    [Migration("20231004220921_BD")]
     partial class BD
     {
         /// <inheritdoc />
@@ -109,6 +109,8 @@ namespace webapi.healthclinic.tarde.Migrations
                     b.HasKey("IdConsulta");
 
                     b.HasIndex("IdMedico");
+
+                    b.HasIndex("IdPaciente");
 
                     b.ToTable("Consulta");
                 });
@@ -289,7 +291,7 @@ namespace webapi.healthclinic.tarde.Migrations
 
                     b.HasOne("webapi.healthclinic.tarde.Domains.Paciente", "Paciente")
                         .WithMany()
-                        .HasForeignKey("IdMedico")
+                        .HasForeignKey("IdPaciente")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

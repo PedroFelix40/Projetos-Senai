@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.EntityFrameworkCore;
 using webapi.healthclinic.tarde.Domains;
 
 namespace webapi.healthclinic.tarde.Contexts
@@ -16,7 +17,10 @@ namespace webapi.healthclinic.tarde.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-2B634JF; Database=healthclinic; User Id= sa; Pwd = Senai@134; TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
+            // optionsBuilder.UseSqlServer("Server=DESKTOP-2B634JF; Database=healthclinic; User Id= sa; Pwd = Senai@134; TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
+            // base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.UseSqlServer("Server = DESKTOP-1CNOHAQ\\SQLEXPRESS; Database=healthclinic; Integrated Security = true; TrustServerCertificate=True;", x => x.UseDateOnlyTimeOnly());
             base.OnConfiguring(optionsBuilder);
         }
     }
