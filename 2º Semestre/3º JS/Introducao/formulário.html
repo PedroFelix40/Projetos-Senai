@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="MostarNickname()">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="Nome">
+        <br><br>
+
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" placeholder="Nickname">
+        <br><br>
+
+        <button>Run</button>
+    </form>
+
+    <script>
+        function MostarNickname(){
+            event.preventDefault(); //Para o submit do formulário
+            
+            let nickname = document.getElementById("nickname").value;
+
+            //Interpolar o nome completo
+            alert(`Boa tarde, ${nickname}!`);
+        }
+    </script>
+</body>
+</html>
