@@ -15,6 +15,8 @@
         <input type="text" id="nickname" placeholder="Nickname">
         <br><br>
 
+        <p>Nickname: <strong id="nomeresposta">??</strong></p>
+
         <button>Run</button>
     </form>
 
@@ -23,9 +25,12 @@
             event.preventDefault(); //Para o submit do formulário
             
             let nickname = document.getElementById("nickname").value;
+            let nome = document.getElementById("nome").value;
 
-            //Interpolar o nome completo
-            alert(`Boa tarde, ${nickname}!`);
+            //let nomeNovo = nome.replace(nome,nickname);
+
+            console.log(`${nome.replace(nome,nickname)}`);
+            document.getElementById('nomeresposta').innerText = nome.replace(nome,nickname);
         }
     </script>
 </body>

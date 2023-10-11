@@ -7,7 +7,7 @@ function calcular() {
     let op = document.getElementById("operacao").value;
 
     //Validação para ver se é realmente um número
-    //NaN(Not a Number)
+    //NaN(Not a Number )
     if(isNaN(n1) || isNaN(n1)) { 
         alert("Preencha todos os campos corretamente!")
         return;
