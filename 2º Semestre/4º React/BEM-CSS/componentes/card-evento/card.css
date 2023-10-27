@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card-event {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around ;
+    margin: 20px;
+    width: 250px;
+    height: 250px;
+    border-radius: 3px;
+    border: 2px solid brown;
+    padding: 0 30px 0;
+}
+
+
+.card-event__text {
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.card-event__text--titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-event__conectar {
+    text-align: center;
+    font-size: 18px;
+    color: brown;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.card-event__conectar--desabilitado {
+    color: lightgray;
+    cursor: not-allowed;
+}
+

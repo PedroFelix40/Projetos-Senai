@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="cadastrar(event)">
+        <label for="nome">Nome</label>
+        <input type="text" placeholder="Seu nome" id="nome">
+        <br><br>
+
+        <label for="telefone">Telefone</label>
+        <input type="number" placeholder="Telefone" id="telefone">
+        <br><br>
+
+        <label for="cep">CEP</label>
+        <input onblur="chamarApi()" type="number" placeholder="Digite o CEP" id="cep" autocomplete="off" />
+        <span id="not-found"></span>
+        <br><br>
+
+        <label for="endereco">Endereco</label>
+        <input type="text" placeholder="..." id="endereco">
+        <br><br>
+
+        <label for="numero">Número</label>
+        <input type="number" placeholder="..." id="numero">
+        <br><br>
+
+        <label for="bairro">Bairro</label>
+        <input type="text" placeholder="..." id="bairro">
+        <br><br>
+
+        <label for="cidade">Cidade</label>
+        <input type="text" placeholder="..." id="cidade">
+        <br><br>
+
+        <label for="estado">Estado</label>
+        <input type="text" placeholder="..." id="estado">
+        <br><br>
+
+        <button>Salvar Contato</button>
+    </form>
+
+    <script>
+        const urlLocal = "http://localhost:3000/contatos"
+
+        async function cadastrar(e) {
+            e.preventDefault()
+            let nome = document.getElementById("nome").value;
+            let telefone = document.getElementById("telefone").value;
+            let cep = document.getElementById("cep").value;
+            let endereco = document.getElementById("endereco").value;
+            let numero = document.getElementById("numero").value;
+            let bairro = document.getElementById("bairro").value;
+            let cidade = document.getElementById("cidade").value;
+            let estado = document.getElementById("estado").value;
+
+            const objContatos = {
+                nome,
+                telefone,
+                cep,
+                endereco,
+                numero,
+                bairro,
+                cidade,
+                estado
+            }
+
+            try {
+                const promise = await fetch(urlLocal, {
+                    //Tranforma o objeto em JSON
+                    body: JSON.stringify(objContatos),
+                    headers: { "Content-Type": "application/json" },
+                    method: "post"
+                });
+
+                const retorno = promise.json(); // pega o retorno da api
+
+                console.log(retorno);
+            } catch (error) {
+                alert("Deu ruim: " + error)
+            }
+
+            console.log(`
+                nome: ${nome}
+                telefone: ${telefone}
+                Cep: ${cep}
+                Rua: ${endereco}
+                Número: ${numero}
+                Bairro: ${bairro}
+                Cidade: ${cidade}
+                Estado: ${estado}
+            `)
+        }
+
+        ///////////////////////////////////
+        async function chamarApi() {
+            const cep = document.getElementById("cep").value
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+            try {
+                const promise = await fetch(url);
+                const endereco = await promise.json();
+
+                //exibir dados no formulário
+                exibirEndereco(endereco);
+
+                document.getElementById("not-found").innerText = "";
+            } catch (error) {// Rejeitada
+                console.log("Deu ruim na API");
+
+                limparEndereco();
+
+                //informa o cep inválido
+                document.getElementById("not-found").innerText = "CEP inválido";
+            }
+        }
+
+        //função 
+        function exibirEndereco(endereco) {
+            //Exibir os dados
+            document.getElementById("endereco").value = endereco.logradouro
+            document.getElementById("cidade").value = endereco.localidade
+            document.getElementById("bairro").value = endereco.bairro
+            document.getElementById("estado").value = endereco.uf
+        }
+        function limparEndereco() {
+            //Exibir os dados
+            document.getElementById("endereco").value = "";
+            document.getElementById("cidade").value = "";
+            document.getElementById("bairro").value = "";
+            document.getElementById("estado").value = "";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,20 +1,15 @@
 {
-  "imc": [
+  "contatos": [
     {
-      "id": 1,
-      "nome": "Eduardo",
-      "altura": "1.60",
-      "peso": 90,
-      "situacao": "Tá laskado",
-      "imc": "150.67"
-    },
-    {
-      "nome": "Enozoooooooo",
-      "altura": "1.90",
-      "peso": 100,
-      "situacao": "Tá laskado",
-      "imc": "50.67",
-      "id": 2
+      "nome": "Pedro",
+      "telefone": "9999999",
+      "cep": "08573710",
+      "endereco": "Rua Lageado",
+      "numero": "67",
+      "bairro": "Morro Branco",
+      "cidade": "Itaquaquecetuba",
+      "estado": "SP",
+      "id": 1
     }
   ]
 }

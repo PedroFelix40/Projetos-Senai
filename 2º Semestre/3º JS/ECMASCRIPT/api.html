@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="number" id="cep" placeholder="seu cep">
+
     <button onclick="chamarApi()">Chamar API</button>
     
     <script>
@@ -19,7 +21,9 @@
         // })//rejeitada
 
         async function chamarApi() {
-            const url = "https://viacep.com.br/ws/08573710/json/";
+            const cep = document.getElementById("cep").value;
+
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
 
             try {
                 const promise = await fetch(url);
