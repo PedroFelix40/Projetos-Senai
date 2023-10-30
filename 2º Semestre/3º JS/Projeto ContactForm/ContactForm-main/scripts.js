@@ -1,6 +1,6 @@
 urlLocal = "http://localhost:3000/contatos"
 
-async function cadastrar() {
+async function cadastrar(e) {
     e.preventDefault()
 
     let nome = document.getElementById("nome").value;
@@ -38,7 +38,7 @@ async function cadastrar() {
     try {
         const promise = await fetch(urlLocal, {
             //Tranforma o objeto em JSON
-            body: JSON.stringify(objContatos),
+            body: JSON.stringify(objPessoa),
             headers: { "Content-Type": "application/json" },
             method: "post"
         });

@@ -24,7 +24,7 @@
         <h1 class="titulo">Contact form</h1>
         <p class="descricao">Insira os dados do contato e clique em cadastrar!</p>
 
-        <form onsubmit="cadastrar()" class="formulario-contato">
+        <form onsubmit="cadastrar(event)" class="formulario-contato">
             <div class="linha">
                 <div class="rotulos">
                     <label for="nome">Nome</label>
@@ -81,7 +81,7 @@
             </div>
 
             <div class="linha box-botoes">
-                <button type="button" class="btn cadastrar">Cadastrar</button>
+                <button type="submit" class="btn cadastrar">Cadastrar</button>
                 <button type="button" class="btn limpar">Limpar</button>
             </div>
         </form>
