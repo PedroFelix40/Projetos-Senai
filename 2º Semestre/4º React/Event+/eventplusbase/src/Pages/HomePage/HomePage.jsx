@@ -21,7 +21,7 @@ const HomePage = () => {
         console.log(promisse.data);
         setNextEvents(promisse.data);
       } catch (error) {
-        alert("Deu ruim na API");
+        console.log("Deu ruim na API");
       }
     }
     getProximosEventos();
