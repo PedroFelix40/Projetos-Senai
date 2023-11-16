@@ -10,10 +10,13 @@ import "./HomePage.css";
 import api from '../../Services/Service'
 
 const HomePage = () => {
+  const [nextEvents, setNextEvents] = useState([]);
+
+
   useEffect(() => {
-    // chamar api
     async function getProximosEventos() {
       try {
+        // chamar api
         const promisse = await api.get(
           "/Evento/ListarProximos"
         );
@@ -25,12 +28,9 @@ const HomePage = () => {
       }
     }
     getProximosEventos();
-  }, []);
+  }, [nextEvents]);
 
-  // fake mock - api mocada
-  const [nextEvents, setNextEvents] = useState([
-   
-  ]);
+
 
   return (
     <MainContent>
