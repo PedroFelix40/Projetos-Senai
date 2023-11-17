@@ -14,3 +14,8 @@
 input {
     margin: 10px;
 }
+
+.swiper {
+    width: 600px;
+    height: 300px;
+  }

@@ -6,78 +6,104 @@ import ImageIllustrator from "../../Components/ImageIllustrator/ImageIllustrator
 import Container from "../../Components/Container/Container";
 import { Input, Button } from "../../Components/FormComponents/FormComponents";
 import eventTypeImage from "../../assets/images/tipo-evento.svg";
-import api from '../../Services/Service';
+import api from "../../Services/Service";
 import TableTp from "./TableTp/TableTp";
 
+import Notification from "../../Components/Notification/Notification";
+
 const TipoEventosPage = () => {
+  //state do componente Notification
+  const [notifyUser, setNotifyUser] = useState({});
+
   const [frmEdit, setFrmEdit] = useState(false);
-  const [titulo, setTitulo] = useState('');
+
+  const [titulo, setTitulo] = useState("");
 
   const [tipoEventos, setTipoEventos] = useState([]); //Array
-
-  console.log(tipoEventos);
 
   useEffect(() => {
     async function getNextEvents() {
       try {
-        const promisse = await api.get("/TiposEvento")
+        const promisse = await api.get(`/TiposEvento`);
 
-        console.log(promisse.data);
-        setTipoEventos(promisse.data)
+        setTipoEventos(promisse.data);
       } catch (error) {
         console.log(error);
       }
     }
-    getNextEvents()
-  },[tipoEventos])
+    getNextEvents();
+  }, []);
 
   async function handleSubmit(e) {
     //para o submit
-    e.preventDefault()
+    e.preventDefault();
 
     // validar pelo menos 3 caracteres
     if (titulo.trim().length < 3) {
-      alert('O titulo deve conter no mínimo 3 caracteres')
-      return
+      alert("O titulo deve conter no mínimo 3 caracteres");
+      return;
     }
 
     // chamar api
     try {
-      const retorno = await api.post("/TiposEvento", {titulo: titulo})
+      const retorno = await api.post("/TiposEvento", { titulo: titulo });
 
-      alert('Tipo de evento cadastrado')
+      setNotifyUser({
+        titleNote: "Sucesso",
+        textNote: `Cadastrado com sucesso!`,
+        imgIcon: "success",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+        showMessage: true,
+      }); 
+
       console.log(retorno.data);
       setTitulo(""); // limpa a variavel
+
+      const promisse = await api.get(`/TiposEvento`);
+
+      setTipoEventos(promisse.data);
+
     } catch (error) {
-      console.log('Deu ruim na api');
+      console.log("Deu ruim na api");
       console.log(error);
     }
   }
 
-  {/****** EDITAR CADASTRO ******/}
+  {
+    /****** EDITAR CADASTRO ******/
+  }
 
   // Atualização dos dados
   function showUpdateForm() {
-    alert('Mostrando a tela de update')
+    alert("Mostrando a tela de update");
   }
-  
+
   function handleUpdate() {
     alert("Bora atualizar");
   }
-  
+
   // Cancela a tela de edição de dados
   function editActionAbort() {
     alert("Cancelar alteração");
   }
 
- 
-  function handleDelete() {
-    alert('Bora lá apagar api')
+  //FUNÇÃO DE DELETAR
+  async function handleDelete(id) {
+    try {
+      const retorno = await api.delete(`/TiposEvento/${id}`);
+
+      alert("Registro apagado com sucesso");
+
+      const promisse = await api.get(`/TiposEvento`);
+
+      setTipoEventos(promisse.data);
+    } catch (error) {}
   }
 
   return (
     <MainContent>
-
+      <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
       {/* CADASTRO DE TIPO DE EVENTOS */}
       <section className="cadastro-evento-section">
         <Container>
@@ -88,15 +114,14 @@ const TipoEventosPage = () => {
               imageRender={eventTypeImage}
             />
 
-            <form 
+            <form
               className="ftipo-evento"
               onSubmit={frmEdit ? handleUpdate : handleSubmit}
             >
               <p>Componentes de Fomulário</p>
 
-              {!frmEdit ? 
-              // Cadastrar
-              (
+              {!frmEdit ? (
+                // Cadastrar
                 <>
                   <Input
                     type={"text"}
@@ -105,24 +130,19 @@ const TipoEventosPage = () => {
                     placeholder={"Titulo"}
                     required={"required"}
                     value={titulo}
-                    manipulationFunction={
-                      (e) => setTitulo(e.target.value)
-                    }
+                    manipulationFunction={(e) => setTitulo(e.target.value)}
                   />
                   {titulo}
-                    <Button 
-                      type={"submit"} 
-                      name={"cadastrar"} 
-                      id={"cadastrar"} 
-                      textButton={"Cadastrar"}/>  
+                  <Button
+                    type={"submit"}
+                    name={"cadastrar"}
+                    id={"cadastrar"}
+                    textButton={"Cadastrar"}
+                  />
                 </>
-              ) 
-              : 
-              (
+              ) : (
                 <p>Tela de Edição</p>
-              )
-              }
-
+              )}
             </form>
           </div>
         </Container>
@@ -132,7 +152,7 @@ const TipoEventosPage = () => {
 
       <section className="lista-eventos-section">
         <Container>
-          <Title titleText={"Lista de Tipo de Eventos"} color="white"/>
+          <Title titleText={"Lista de Tipo de Eventos"} color="white" />
 
           <TableTp
             dados={tipoEventos}

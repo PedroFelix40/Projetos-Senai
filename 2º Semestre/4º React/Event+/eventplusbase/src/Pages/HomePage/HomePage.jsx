@@ -28,7 +28,7 @@ const HomePage = () => {
       }
     }
     getProximosEventos();
-  }, [nextEvents]);
+  }, []);
 
 
 

@@ -21,7 +21,7 @@ const TableTp = ({dados, fnUpdate, fnDelete}) => {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody className="table-data__tbody">
           {/* map dos dados */}
           {/* criar um map na variável dados e colocar a linha abaixo dentro do return do map */}
           
@@ -52,7 +52,7 @@ const TableTp = ({dados, fnUpdate, fnDelete}) => {
                 alt="" 
                 onClick={
                     () => {
-                        fnDelete()
+                        fnDelete(dados.idTipoEvento)
                     }
                 }
             />
