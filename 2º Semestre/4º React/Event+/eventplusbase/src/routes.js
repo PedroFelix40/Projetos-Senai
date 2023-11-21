@@ -12,6 +12,9 @@ import TestePage from './Pages/TestePage/TestePage';
 
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
+
+
+
 const Rotas = () => {
     return (
       // criar a estrutura de rotas
