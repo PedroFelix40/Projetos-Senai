@@ -42,7 +42,25 @@ namespace webapi.event_.Repositories
         {
             try
             {
-                return _context.Evento.Find(id)!;
+                Evento eventoBuscado = _context.Evento.Select(e => new Evento()
+                {
+                    IdEvento = e.IdEvento,
+                    NomeEvento = e.NomeEvento,
+                    DataEvento = e.DataEvento,
+                    Descricao = e.Descricao,
+
+                    TiposEvento = new()
+                    {
+                        IdTipoEvento = e.TiposEvento.IdTipoEvento,
+                        Titulo = e.TiposEvento.Titulo
+                    },
+
+                    IdInstituicao = e.IdInstituicao
+
+                }).FirstOrDefault(e => e.IdEvento == id)!;
+
+                return eventoBuscado;
+            
             }
             catch (Exception)
             {
@@ -89,7 +107,23 @@ namespace webapi.event_.Repositories
         {
             try
             {
-                return _context.Evento.ToList();
+                return _context.Evento.Select(e => new Evento()
+                {
+                    IdEvento = e.IdEvento,
+                    NomeEvento = e.NomeEvento,
+                    DataEvento = e.DataEvento,
+                    Descricao = e.Descricao,
+
+                    IdTipoEvento= e.IdTipoEvento,
+
+                    TiposEvento = new()
+                    {
+                        IdTipoEvento = e.TiposEvento.IdTipoEvento,
+                        Titulo = e.TiposEvento.Titulo
+                    },
+
+                    IdInstituicao = e.IdInstituicao
+                }).ToList();
             }
             catch (Exception)
             {
@@ -103,6 +137,7 @@ namespace webapi.event_.Repositories
             {
                 return _context.Evento
                     .Where(e => e.DataEvento > DateTime.Now).OrderBy(e => e.DataEvento) .ToList();
+
             }
             catch (Exception)
             {
