@@ -178,7 +178,7 @@ const TipoEventosPage = () => {
                     value={titulo}
                     manipulationFunction={(e) => setTitulo(e.target.value)}
                   />
-                  {titulo}
+                  
                   <Button
                     type={"submit"}
                     name={"cadastrar"}

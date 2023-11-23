@@ -5,18 +5,25 @@ import Title from "../../Components/Title/Title";
 import ImageIllustrator from "../../Components/ImageIllustrator/ImageIllustrator";
 import eventImage from "../../assets/images/evento.svg";
 import TableEv from "./TableEv/TableEv";
-import { Input } from "../../Components/FormComponents/FormComponents";
-import { Button } from "../../Components/FormComponents/FormComponents";
-
+import {
+  Input,
+  Button,
+  Select,
+} from "../../Components/FormComponents/FormComponents";
+import { dateFormatViewToDb } from "../../Utils/stringFunctions";
 import api from "../../Services/Service";
 
 const EventosPage = () => {
   const [eventos, setEventos] = useState([]);
+  const [idEventos, setIdEventos] = useState("");
   const [nomeEvento, setNomeEvento] = useState("");
   const [descricao, setDescricao] = useState("");
   const [dataEvento, setDataEvento] = useState("");
-  const [tiposEvento, setTiposEvento] = useState("");
-  const [instituicao, setInstituicao] = useState("Senai Informática");
+  const [tiposEvento, setTiposEvento] = useState([]);
+  const [idTiposEvento, setIdTiposEvento] = useState("");
+  const [instituicao, setInstituicao] = useState(
+    "d091baf1-ae72-439e-a59f-04993ed02c2d"
+  );
   const [frmEdit, setFrmEdit] = useState(false);
 
   useEffect(() => {
@@ -25,6 +32,10 @@ const EventosPage = () => {
         const promisse = await api.get(`/Evento`);
 
         setEventos(promisse.data);
+
+        const retorno = await api.get(`/tiposEvento`);
+
+        setTiposEvento(retorno.data);
       } catch (error) {
         console.log(error);
       }
@@ -54,29 +65,92 @@ const EventosPage = () => {
         return;
       }
 
-      const retorno = await api.post("/Evento", { nomeEvento: nomeEvento , dataEvento: dataEvento , tiposEvento: tiposEvento });
+      const retorno = await api.post("/Evento", {
+        dataEvento: dataEvento,
+        nomeEvento: nomeEvento,
+        descricao: descricao,
+        idTipoEvento: idTiposEvento,
+        idInstituicao: instituicao,
+      });
 
       getNextEvents();
-    } catch (error) {}
+    } catch (error) {
+      console.log("Deu ruim na api");
+      console.log(error);
+    }
   }
 
   //____________________________________________________________
 
   // Funções de UpDate
 
-  async function showUpdateForm(idElemento) {}
+  async function showUpdateForm(idElemento) {
+    setFrmEdit(true);
+    // fazer um getById
 
-  async function handleUpdate(e) {}
+    try {
+      const retorno = await api.get(`/Evento/${idElemento}`);
+
+      const { idEvento, dataEvento, nomeEvento, descricao, idTipoEvento } =
+        await retorno.data;
+
+      setIdEventos(idEvento);
+      setDataEvento(dateFormatViewToDb(dataEvento));
+      setNomeEvento(nomeEvento);
+      setDescricao(descricao);
+      setIdTiposEvento(idTipoEvento);
+    } catch (error) {
+      console.log("Não foi possível mostrar a tela de edição. Tente novamente");
+    }
+  }
+
+  async function handleUpdate(e) {
+    e.preventDefault();
+
+    // validar pelo menos 3 caracteres
+    if (nomeEvento.trim().length < 3) {
+      alert("O nome do evento deve conter no mínimo 3 caracteres");
+      return;
+    }
+
+    // chamar api
+    try {
+      const retorno = await api.put(`/Evento/${idEventos}`, {
+        dataEvento: dataEvento,
+        nomeEvento: nomeEvento,
+        descricao: descricao,
+        idTipoEvento: idTiposEvento,
+      });
+
+      editActionAbort();
+
+      getNextEvents();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   //____________________________________________________________
 
   // Cancela a tela de edição de dados
-  function editActionAbort() {}
+  function editActionAbort() {
+    setFrmEdit(false);
+    setDataEvento("");
+    setNomeEvento("");
+    setDescricao("");
+    setIdEventos(null);
+  }
 
   //____________________________________________________________
 
   //FUNÇÃO DE DELETAR
-  async function handleDelete(id) {}
+  async function handleDelete(id) {
+    try {
+      const retorno = await api.delete(`/Evento/${id}`);
+
+      getNextEvents();
+    } catch (error) {}
+  }
 
   //____________________________________________________________
 
@@ -95,7 +169,7 @@ const EventosPage = () => {
               {!frmEdit ? (
                 // Tela de Cadastro
                 <>
-                {/* Input Nome */}
+                  {/* Input Nome */}
                   <Input
                     type={"text"}
                     id={"nome"}
@@ -115,26 +189,24 @@ const EventosPage = () => {
                     value={descricao}
                     manipulationFunction={(e) => setDescricao(e.target.value)}
                   />
-                    
-                   <select name="tiposEvento" id="tiposEvento">
-                    
-                   </select>
-                    {/* Input tipo evento continuar amnhaaaaaaaaaaaaaaaaaaaaaaaaaaa */}
-                  <Input
-          
-                    id={"titulo"}
-                    name={"titulo"}
-                    placeholder={"Tipo Evento"}
+
+                  {/* Select */}
+                  <Select
+                    dados={tiposEvento}
+                    id={"tiposEvento"}
+                    name={"tiposEvento"}
                     required={"required"}
-                    value={tiposEvento}
-                    manipulationFunction={(e) => setTiposEvento(e.target.value)}
+                    manipulationFunction={(e) =>
+                      setIdTiposEvento(e.target.value)
+                    }
+                    selectValue={idTiposEvento}
                   />
-                    {/* Input data */}
+
+                  {/* Input data */}
                   <Input
                     type={"date"}
                     id={"dataEvento"}
                     name={"dataEvento"}
-                    placeholder={"dd/mm/aaaa"}
                     required={"required"}
                     value={dataEvento}
                     manipulationFunction={(e) => setDataEvento(e.target.value)}
@@ -150,24 +222,58 @@ const EventosPage = () => {
               ) : (
                 // Tela de Edição
                 <>
+                  {/* Input Nome */}
                   <Input
-                    id={"titulo"}
-                    placeholder={"Título"}
-                    name={"titulo"}
                     type={"text"}
+                    id={"nome"}
+                    name={"nome"}
+                    placeholder={"Nome"}
                     required={"required"}
                     value={nomeEvento}
                     manipulationFunction={(e) => setNomeEvento(e.target.value)}
                   />
+                  {/* Input Descrição */}
+                  <Input
+                    type={"text"}
+                    id={"descricao"}
+                    name={"descricao"}
+                    placeholder={"Descrição"}
+                    required={"required"}
+                    value={descricao}
+                    manipulationFunction={(e) => setDescricao(e.target.value)}
+                  />
+
+                  {/* Select */}
+                  <Select
+                    dados={tiposEvento}
+                    id={"tiposEvento"}
+                    name={"tiposEvento"}
+                    required={"required"}
+                    manipulationFunction={(e) =>
+                      setIdTiposEvento(e.target.value)
+                    }
+                    selectValue={idTiposEvento}
+                  />
+
+                  {/* Input data */}
+                  <Input
+                    type={"date"}
+                    id={"dataEvento"}
+                    name={"dataEvento"}
+                    required={"required"}
+                    value={dataEvento}
+                    manipulationFunction={(e) => setDataEvento(e.target.value)}
+                  />
 
                   <div className="buttons-editbox">
                     <Button
-                      textButton={"Atualizar"}
-                      id={"atualizar"}
-                      name={"atualizar"}
                       type={"submit"}
+                      name={"atualizar"}
+                      id={"atualizar"}
+                      textButton={"Atualizar"}
                       additionalClass={"button-component--middle"}
                     />
+
                     <Button
                       textButton={"Cancelar"}
                       id={"cancelar"}
@@ -188,7 +294,11 @@ const EventosPage = () => {
         <Container>
           <Title titleText={"Lista de Eventos"} color="white" />
 
-          <TableEv dados={eventos} />
+          <TableEv
+            dados={eventos}
+            fnUpdate={showUpdateForm}
+            fnDelete={handleDelete}
+          />
         </Container>
       </section>
     </MainContent>
