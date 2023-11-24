@@ -54,7 +54,7 @@ export const Select = ({
     required,
     additionalClass = "",
     manipulationFunction,
-    selectValue
+    selectValue = ''
 }) => {
   return (
     

@@ -49,6 +49,8 @@ namespace webapi.event_.Repositories
                     DataEvento = e.DataEvento,
                     Descricao = e.Descricao,
 
+                    IdTipoEvento = e.IdTipoEvento,
+
                     TiposEvento = new()
                     {
                         IdTipoEvento = e.TiposEvento.IdTipoEvento,
@@ -116,7 +118,7 @@ namespace webapi.event_.Repositories
 
                     IdTipoEvento= e.IdTipoEvento,
 
-                    TiposEvento = new()
+                    TiposEvento = new TiposEvento()
                     {
                         IdTipoEvento = e.TiposEvento.IdTipoEvento,
                         Titulo = e.TiposEvento.Titulo

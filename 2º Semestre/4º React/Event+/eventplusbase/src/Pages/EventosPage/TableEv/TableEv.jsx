@@ -37,7 +37,7 @@ const TableEv = ({dados, fnUpdate, fnDelete}) => {
 
         {dados.map((dados) => {
           return (
-            <tr className="table-data__head-row">
+            <tr key={dados.idEvento} className="table-data__head-row">
               <td className="table-data__data table-data__data--big">
                 {dados.nomeEvento}
               </td>

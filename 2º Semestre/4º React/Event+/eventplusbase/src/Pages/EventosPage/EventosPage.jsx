@@ -12,6 +12,8 @@ import {
 } from "../../Components/FormComponents/FormComponents";
 import { dateFormatViewToDb } from "../../Utils/stringFunctions";
 import api from "../../Services/Service";
+import Notification from "../../Components/Notification/Notification";
+
 
 const EventosPage = () => {
   const [eventos, setEventos] = useState([]);
@@ -25,6 +27,8 @@ const EventosPage = () => {
     "d091baf1-ae72-439e-a59f-04993ed02c2d"
   );
   const [frmEdit, setFrmEdit] = useState(false);
+  const [notifyUser, setNotifyUser] = useState({});
+
 
   useEffect(() => {
     async function getNextEvents() {
@@ -65,18 +69,45 @@ const EventosPage = () => {
         return;
       }
 
+      else if(new Date(dataEvento) < new Date (Date.now())) {
+        setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Data inválida`,
+          imgIcon: "danger",
+          imgAlt: "",
+          showMessage: true,
+        });
+        return
+      }
+
       const retorno = await api.post("/Evento", {
         dataEvento: dataEvento,
         nomeEvento: nomeEvento,
         descricao: descricao,
         idTipoEvento: idTiposEvento,
-        idInstituicao: instituicao,
+        idInstituicao: instituicao
+      });
+
+      editActionAbort()
+
+      setNotifyUser({
+        titleNote: "Sucesso",
+        textNote: `Cadastrado com sucesso!`,
+        imgIcon: "success",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+        showMessage: true,
       });
 
       getNextEvents();
     } catch (error) {
-      console.log("Deu ruim na api");
-      console.log(error);
+      setNotifyUser({
+        titleNote: "Erro",
+        textNote: `Erro ao cadastrar`,
+        imgIcon: "danger",
+        imgAlt: "",
+        showMessage: true,
+      });
     }
   }
 
@@ -92,13 +123,13 @@ const EventosPage = () => {
       const retorno = await api.get(`/Evento/${idElemento}`);
 
       const { idEvento, dataEvento, nomeEvento, descricao, idTipoEvento } =
-        await retorno.data;
+       retorno.data;
 
       setIdEventos(idEvento);
       setDataEvento(dateFormatViewToDb(dataEvento));
       setNomeEvento(nomeEvento);
       setDescricao(descricao);
-      setIdTiposEvento(idTipoEvento);
+      setIdTiposEvento( idTipoEvento);
     } catch (error) {
       console.log("Não foi possível mostrar a tela de edição. Tente novamente");
     }
@@ -107,10 +138,29 @@ const EventosPage = () => {
   async function handleUpdate(e) {
     e.preventDefault();
 
-    // validar pelo menos 3 caracteres
-    if (nomeEvento.trim().length < 3) {
-      alert("O nome do evento deve conter no mínimo 3 caracteres");
-      return;
+    try {      
+      // validar pelo menos 3 caracteres
+      if (nomeEvento.trim().length < 3) {
+        alert("O nome do evento deve conter no mínimo 3 caracteres");
+        return;
+      } else if(new Date(dataEvento) < new Date (Date.now())) {
+        setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Data inválida`,
+          imgIcon: "danger",
+          imgAlt: "",
+          showMessage: true,
+        });
+        return
+      }
+    } catch (error) {
+      setNotifyUser({
+        titleNote: "Erro",
+        textNote: `Erro ao atualizar`,
+        imgIcon: "danger",
+        imgAlt: "",
+        showMessage: true,
+      });
     }
 
     // chamar api
@@ -124,6 +174,15 @@ const EventosPage = () => {
 
       editActionAbort();
 
+      setNotifyUser({
+        titleNote: "Sucesso",
+        textNote: `Atualizado com sucesso!`,
+        imgIcon: "success",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+        showMessage: true,
+      });
+
       getNextEvents();
     } catch (error) {
       console.log(error);
@@ -135,6 +194,7 @@ const EventosPage = () => {
   // Cancela a tela de edição de dados
   function editActionAbort() {
     setFrmEdit(false);
+    setIdTiposEvento("")
     setDataEvento("");
     setNomeEvento("");
     setDescricao("");
@@ -148,14 +208,25 @@ const EventosPage = () => {
     try {
       const retorno = await api.delete(`/Evento/${id}`);
 
+      setNotifyUser({
+        titleNote: "Sucesso",
+        textNote: `Deletado com sucesso!`,
+        imgIcon: "success",
+        imgAlt: "",
+        showMessage: true,
+      });
+
       getNextEvents();
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   //____________________________________________________________
 
   return (
     <MainContent>
+      <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
       <section className="cadastro-evento-section">
         <Container>
           <div className="cadastro-evento__box">
@@ -254,7 +325,7 @@ const EventosPage = () => {
                     }
                     selectValue={idTiposEvento}
                   />
-
+                  
                   {/* Input data */}
                   <Input
                     type={"date"}
