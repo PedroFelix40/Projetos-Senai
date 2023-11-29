@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MainContent from "../../Components/MainContent/MainContent";
 import Title from "../../Components/Title/Title";
 import Banner from "../../Components/Banner/Banner";
@@ -8,10 +8,15 @@ import NextEvent from "../../Components/NextEvent/NextEvent";
 import Container from "../../Components/Container/Container";
 import "./HomePage.css";
 import api from '../../Services/Service'
+import { UserContext } from "../../context/AuthContext";
 
 const HomePage = () => {
   const [nextEvents, setNextEvents] = useState([]);
 
+  const {userData} = useContext(UserContext)
+
+  console.log("dados globais");
+console.log(userData);
 
   useEffect(() => {
     async function getProximosEventos() {

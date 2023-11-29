@@ -9,7 +9,6 @@ import menubar from '../../assets/images/menubar.png'
 
 const Header = () => {
     const [exibeNavbar, setExibeNavbar] = useState(false)
-    console.log(`Exibe a navbar? ${exibeNavbar}`);
     return (
         <header className='headerpage'>
             <Container>
