@@ -1,41 +1,53 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ImageIllustrator from "../../Components/ImageIllustrator/ImageIllustrator";
-import loginImage from "../../assets/images/login.svg"
+import loginImage from "../../assets/images/login.svg";
 import logo from "../../assets/images/logo-pink.svg";
 import { Input, Button } from "../../Components/FormComponents/FormComponents";
 import api from "../../Services/Service";
 
 import "./LoginPage.css";
 import { UserContext, UserDecodeToken } from "../../context/AuthContext";
-import { json } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  
-    const [ user, setUser ] = useState({email: '', senha: ''})
+  // Este user serve para trabalharmos com os dados recebidos através do form
+  const [user, setUser] = useState({ email: "", senha: "" });
 
-    const { userData, setUserData } = useContext(UserContext)
+  // Nesta parte instanciamos o Context, para que a sessão LoginPage tenha acesso aos dados
+  const { userData, setUserData } = useContext(UserContext);
 
-    async function handSubmit(e) {
-        e.preventDefault();
+  const navigate = useNavigate();
 
-        if (user.email.length >= 3 && user.senha.length > 3) {
-            try {
-                const promisse = await api.post(`/Login`, {
-                    email: user.email,
-                    senha: user.senha
-                });
-
-                const userFullToken = UserDecodeToken(promisse.data.token)
-
-                setUserData(userFullToken); // guarda os dados decodificados da payload
-                localStorage.setItem("token", JSON.stringify(userFullToken))
-            } catch (error) {
-                alert("Usuário ou senha inválida")
-            }
-        }else {
-            alert("Preencha os dados corretamente")
-        }
+  useEffect(()=>{
+    if(userData.name) {
+      navigate("/")
     }
+  },[userData])
+
+  async function handSubmit(e) {
+    e.preventDefault();
+
+    if (user.email.length >= 3 && user.senha.length > 3) {
+      try {
+        // Ao fazer o login, precisamos passar a rota e o objeto: (`\rota`, {objeto})
+        const promisse = await api.post(`/Login`, {
+          email: user.email,
+          senha: user.senha,
+        });
+
+        const userFullToken = UserDecodeToken(promisse.data.token);
+        setUserData(userFullToken); // Guarda os dados decodificados da payload
+
+        localStorage.setItem("token", JSON.stringify(userFullToken)); // Guarda os dados do token no localStorage(é necessário transformar o objeto em string)
+
+        navigate("/"); // Manda o usuário para a Home
+      } catch (error) {
+        alert("Usuário ou senha inválida");
+      }
+    } else {
+      alert("Preencha os dados corretamente");
+    }
+  }
 
   return (
     <div className="layout-grid-login">
@@ -62,9 +74,9 @@ const LoginPage = () => {
               value={user.email}
               manipulationFunction={(e) => {
                 setUser({
-                    ...user,
-                     email: e.target.value.trim()
-                    })
+                  ...user,
+                  email: e.target.value.trim(),
+                });
               }}
               placeholder="Username"
             />
@@ -77,9 +89,9 @@ const LoginPage = () => {
               value={user.senha}
               manipulationFunction={(e) => {
                 setUser({
-                    ...user,
-                     senha: e.target.value
-                    })
+                  ...user,
+                  senha: e.target.value,
+                });
               }}
               placeholder="****"
             />

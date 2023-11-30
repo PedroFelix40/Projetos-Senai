@@ -65,8 +65,9 @@
 
     /* border: 1px solid blue; */
 }
-Link {
+.navbar__items-box__link {
     text-decoration: none;
+    color:black;
 }
 /* links da navbar */
 .navbar__item {

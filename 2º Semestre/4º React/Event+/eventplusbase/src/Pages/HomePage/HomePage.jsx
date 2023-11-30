@@ -13,6 +13,7 @@ import { UserContext } from "../../context/AuthContext";
 const HomePage = () => {
   const [nextEvents, setNextEvents] = useState([]);
 
+  // Nesta parte instanciamos o Context, para que a sessão HomePage tenha acesso aos dados
   const {userData} = useContext(UserContext)
 
   console.log("dados globais");
