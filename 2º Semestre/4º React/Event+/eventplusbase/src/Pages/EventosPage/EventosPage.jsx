@@ -9,6 +9,7 @@ import {
   Input,
   Button,
   Select,
+  SelectEv,
 } from "../../Components/FormComponents/FormComponents";
 import { dateFormatViewToDb } from "../../Utils/stringFunctions";
 import api from "../../Services/Service";
@@ -262,7 +263,7 @@ const EventosPage = () => {
                   />
 
                   {/* Select */}
-                  <Select
+                  <SelectEv
                     dados={tiposEvento}
                     id={"tiposEvento"}
                     name={"tiposEvento"}
@@ -315,7 +316,7 @@ const EventosPage = () => {
                   />
 
                   {/* Select */}
-                  <Select
+                  <SelectEv
                     dados={tiposEvento}
                     id={"tiposEvento"}
                     name={"tiposEvento"}

@@ -96,7 +96,7 @@ const LoginPage = () => {
               placeholder="****"
             />
 
-            <a href="https://dontpad.com/pedroooo" className="frm-login__link">
+            <a href="https://dontpad.com" className="frm-login__link">
               Esqueceu a senha?
             </a>
 
