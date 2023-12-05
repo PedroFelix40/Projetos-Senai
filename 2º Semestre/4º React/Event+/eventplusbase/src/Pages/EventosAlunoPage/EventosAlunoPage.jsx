@@ -36,14 +36,22 @@ const EventosAlunoPage = () => {
       // Trazer todos os eventos
       try {
         if (tipoEvento === "1") {
-          const promisse = await api.get(`/Evento/ListarProximos`);
+          const promise = await api.get(`/Evento`);
+          const promiseEventos = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`);
 
-          setEventos(promisse.data);
+          const dadosMarcados = verificaPresenca(promise.data, promiseEventos.data)
+          console.clear()
+          
+          console.log(`dados marcados`);
+          
+          console.log(dadosMarcados);
+
+          setEventos(promise.data);
         } else if(tipoEvento === "2") { // Minhas presenças
           let arrEventos = []
-          const promisse = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`);
-          promisse.data.forEach((element)=>{
-            arrEventos.push(element.evento)
+          const promiseEventos = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`);
+          promiseEventos.data.forEach((element)=>{
+            arrEventos.push({...element.evento, situacao : element.situacao})
           })
           setEventos(arrEventos);
         }
@@ -55,7 +63,23 @@ const EventosAlunoPage = () => {
     }
 
     loadEventsType();
-  }, [tipoEvento]);
+  }, [tipoEvento, userData.userId]);
+
+  const verificaPresenca = (arrAllEvents, eventsUser) => {
+    for (let x = 0; x < arrAllEvents.length; x++) { // Para cada evento (todos)
+      
+      //Verifica se o aluno está participando do evento atual (x)
+      for (let i = 0; i < eventsUser.length; i++) {
+
+        if (arrAllEvents[x].idEvento === eventsUser[i].idEvento) {
+          arrAllEvents[x].situacao = true;
+          break;
+        }                              
+      }
+    }
+    // Devolve o array modificado
+    return arrAllEvents;
+  }
 
   // toggle meus eventos ou todos os eventos
   function myEvents(tpEvent) {

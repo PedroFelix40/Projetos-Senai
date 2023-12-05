@@ -48,7 +48,7 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
                   onClick={fnShowModal}
                 />
 
-                <Toggle manipulationFunction={fnConnect} />
+                <Toggle toggleActive={e.situacao} manipulationFunction={fnConnect} />
               </td>
             </tr>
           );
