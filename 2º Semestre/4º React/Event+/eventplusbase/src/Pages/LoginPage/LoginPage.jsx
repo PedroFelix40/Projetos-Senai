@@ -9,20 +9,25 @@ import "./LoginPage.css";
 import { UserContext, UserDecodeToken } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+// Notificacao
+import Notification from "../../Components/Notification/Notification";
+
 const LoginPage = () => {
   // Este user serve para trabalharmos com os dados recebidos através do form
   const [user, setUser] = useState({ email: "", senha: "" });
+  // notificação
+  const [notifyUser, setNotifyUser] = useState({});
 
   // Nesta parte instanciamos o Context, para que a sessão LoginPage tenha acesso aos dados
   const { userData, setUserData } = useContext(UserContext);
 
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    if(userData.name) {
-      navigate("/")
+  useEffect(() => {
+    if (userData.name) {
+      navigate("/");
     }
-  },[userData])
+  }, [userData]);
 
   async function handSubmit(e) {
     e.preventDefault();
@@ -42,10 +47,22 @@ const LoginPage = () => {
 
         navigate("/"); // Manda o usuário para a Home
       } catch (error) {
-        alert("Usuário ou senha inválida");
+        setNotifyUser({
+          titleNote: "Sucesso",
+          textNote: `Senha incorreta`,
+          imgIcon: "warning",
+          imgAlt: "",
+          showMessage: true,
+        });
       }
     } else {
-      alert("Preencha os dados corretamente");
+      setNotifyUser({
+        titleNote: "Sucesso",
+        textNote: `Dados incorretos`,
+        imgIcon: "warning",
+        imgAlt: "",
+        showMessage: true,
+      });
     }
   }
 
@@ -110,6 +127,7 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
+      <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
     </div>
   );
 };

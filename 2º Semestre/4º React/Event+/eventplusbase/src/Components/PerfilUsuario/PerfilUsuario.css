@@ -24,6 +24,9 @@
     font-size: 1rem;
     color: #201849;
     text-decoration: none;
+    /* background-color: var(--color-red);
+    border-radius: 10px;
+    padding: 10px; */
 }
 
 .perfil-usuario__icon {
