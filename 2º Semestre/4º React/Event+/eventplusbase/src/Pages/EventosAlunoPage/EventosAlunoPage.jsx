@@ -33,6 +33,14 @@ const EventosAlunoPage = () => {
   // notificação
   const [notifyUser, setNotifyUser] = useState({});
 
+  // Objeto do Comentário
+  const [ comentario, setComentario ] = useState({
+    descricao: "",
+    exibe: "",     
+    idUsuario: "",     
+    idEvento: ""
+  })
+
   async function loadEventsType() {
     setShowSpinner(true);
 
@@ -48,7 +56,7 @@ const EventosAlunoPage = () => {
           promise.data,
           promiseEventos.data
         );
-        console.clear();
+        
 
         setEventos(promise.data);
       } else if (tipoEvento === "2") {
@@ -98,18 +106,44 @@ const EventosAlunoPage = () => {
     setTipoEvento(tpEvent);
   }
   // ler um comentário - get
-  const loadMyComentary = async (idComentary) => {
-    alert("Carregar comentário")
+  const loadMyComentary = async (idUser, idEvento) => {
+    try {
+      const promise = await api.get(`/ComentariosEvento/BuscarPorIdUsuario?idUser=${idUser}&idEvent=${idEvento}`)
+
+      setComentario(promise.data)
+
+      console.log(promise.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // Cadastra comentário - post
-  const postMyComentary = async () => {
-    alert("Cadastrar comentário")
+  const postMyComentary = async (comentario) => {
+    // alert("Cadastrar comentário")
+    try {
+      const {descricao, exibe, idUsuario, idEvento} = comentario
+
+      const retorno = await api.post("/ComentariosEvento", {
+        descricao: descricao,
+        exibe: exibe,     
+        idUsuario: idUsuario,     
+        idEvento: idEvento,
+      })
+
+      
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // Remove comentário - delete
   const commentaryRemove = async (idComentary) => {
-    alert("Remover o comentário");
+    try {
+      const promise = await api.delete("/Comentario", {idComentary})
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // abre a sessão comentário
@@ -204,7 +238,7 @@ const EventosAlunoPage = () => {
         <Modal
           userId={userData.userId}
           showHideModal={showHideModal}
-          fnGet={loadEventsType}
+          fnGet={loadMyComentary}
           fnPost={postMyComentary}
           fnDelete={commentaryRemove}
         />

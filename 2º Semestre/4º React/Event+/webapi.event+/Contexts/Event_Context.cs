@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BCrypt.Net;
+using Microsoft.EntityFrameworkCore;
 using webapi.event_.Domains;
 
 namespace webapi.event_.Contexts
@@ -28,7 +29,13 @@ namespace webapi.event_.Contexts
         /// <param name="optionsBuilder">Objeto com as configurações definidas</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=NOTE15-S14; Database=event+_pedro; User Id = sa; Pwd = Senai@134; TrustServerCertificate=true;");
+            // String de Conexão local SSMS
+            //optionsBuilder.UseSqlServer("Server=NOTE15-S14; Database=event+_pedro; User Id = sa; Pwd = Senai@134; TrustServerCertificate=true;");
+
+            //String de Conexão SQL Database Azure
+
+            optionsBuilder.UseSqlServer("Server=tcp:eventpedrog-server.database.windows.net,1433;Initial Catalog=eventPedroDatabase;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30; User Id= eventpedrog-server; Pwd= Senai@134;");
+
             base.OnConfiguring(optionsBuilder);
         }
     }

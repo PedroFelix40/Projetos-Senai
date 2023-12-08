@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import trashDelete from "../../assets/images/trash-delete-red.png";
+import { UserContext } from "../../context/AuthContext";
 
 import { Button, Input } from "../FormComponents/FormComponents";
 import "./Modal.css";
@@ -14,6 +15,11 @@ const Modal = ({
   fnDelete = null
 
 }) => {
+
+  const { userData, setUserData } = useContext(UserContext);
+  useEffect(() =>{
+    fnGet();
+  },[])
 
   return (
     <div className="modal">
@@ -30,7 +36,9 @@ const Modal = ({
             src={trashDelete}
             className="comentary__icon-delete"
             alt="Ícone de uma lixeira"
-            onClick={fnDelete}
+            onClick={() =>{
+              fnDelete()
+            }}
           />
 
           <p className="comentary__text">{comentaryText}</p>
@@ -46,7 +54,12 @@ const Modal = ({
         <Button
           textButton="Comentar"
           additionalClass="comentary__button"
-          manipulationFunction={fnPost}
+          manipulationFunction={ () =>{
+            fnPost({
+              //idUsuario: userData.idUsuario,
+              //idEvento: idEvento
+            })
+          }}
         />
       </article>
     </div>
