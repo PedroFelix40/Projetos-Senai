@@ -25,7 +25,7 @@ const EventosPage = () => {
   const [tiposEvento, setTiposEvento] = useState([]);
   const [idTiposEvento, setIdTiposEvento] = useState("");
   const [instituicao, setInstituicao] = useState(
-    "d091baf1-ae72-439e-a59f-04993ed02c2d"
+    "6c188a14-b512-4db1-975c-880eb856e0c2"
   );
   const [frmEdit, setFrmEdit] = useState(false);
   const [notifyUser, setNotifyUser] = useState({});

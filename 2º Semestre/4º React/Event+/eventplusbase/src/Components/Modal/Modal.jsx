@@ -18,7 +18,11 @@ const Modal = ({
 
   const { userData, setUserData } = useContext(UserContext);
   useEffect(() =>{
-    fnGet();
+    async function carregarDados() { 
+      fnGet();
+    }
+
+    carregarDados()
   },[])
 
   return (
