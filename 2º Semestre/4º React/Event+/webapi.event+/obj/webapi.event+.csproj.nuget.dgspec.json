@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj": {}
+    "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj": {
+    "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj",
+        "projectUniqueName": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj",
         "projectName": "webapi.event+",
-        "projectPath": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj",
-        "packagesPath": "C:\\Users\\Predo Gabirel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Predo Gabirel\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\obj\\",
+        "projectPath": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\webapi.event+.csproj",
+        "packagesPath": "C:\\Users\\48746019871\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\48746019871\\Desktop\\Projetos-Senai\\2º Semestre\\4º React\\Event+\\webapi.event+\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Predo Gabirel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\48746019871\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,6 +55,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.Azure.CognitiveServices.ContentModerator": {
+              "target": "Package",
+              "version": "[2.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
