@@ -10,7 +10,9 @@ import EventosPage from "../Pages/EventosPage/EventosPage";
 import EventosAlunoPage from "../Pages/EventosAlunoPage/EventosAlunoPage";
 import TipoEventosPage from "../Pages/TipoEventosPage/TipoEventosPage";
 import TestePage from "../Pages/TestePage/TestePage";
+import DetalhesEvento from "../Pages/DetalhesEvento/DetalhesEvento";
 
+// Import do Componentes
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import { PrivateRoute } from "./PrivateRoute";
@@ -52,6 +54,11 @@ const Rotas = () => {
         <Route
           path="/login"
           element={<LoginPage />}
+        />
+       
+        <Route
+          path="/detalhes-evento/:idEvento"
+          element={<DetalhesEvento />}
         />
 
         <Route element={<TestePage />} path="/testes" />

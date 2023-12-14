@@ -2,6 +2,7 @@ import React from "react";
 import { dateFormatDbToView } from "../../Utils/stringFunctions";
 import "./NextEvent.css";
 import { Tooltip } from "react-tooltip";
+import { Link } from "react-router-dom";
 
 const NextEvent = ({ idEvento, title, description, eventDate }) => {
   function conectar(idEvento) {
@@ -24,15 +25,14 @@ const NextEvent = ({ idEvento, title, description, eventDate }) => {
 
       <p className="event-card__description">{dateFormatDbToView(eventDate)}</p>
 
-      <a
-        onClick={() => {
-          conectar(12345);
-        }}
-        href=""
-        className="event-card__connect-link"
-      >
-        Conectar
-      </a>
+      <Link to={`/detalhes-evento/${idEvento}`}>
+        <a
+          
+          className="event-card__connect-link"
+        >
+          Detalhes
+        </a>
+      </Link>
     </article>
   );
 };
