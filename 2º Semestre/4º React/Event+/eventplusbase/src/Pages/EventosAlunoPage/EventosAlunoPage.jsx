@@ -17,6 +17,7 @@ const EventosAlunoPage = () => {
   // state do menu mobile
   const [exibeNavbar, setExibeNavbar] = useState(false);
   const [eventos, setEventos] = useState([]);
+
   // select mocado
   const [quaisEventos, setQuaisEventos] = useState([
     { value: "1", text: "Todos os eventos" },
@@ -34,12 +35,12 @@ const EventosAlunoPage = () => {
   const [notifyUser, setNotifyUser] = useState({});
 
   // Objeto do Comentário
-  const [ comentario, setComentario ] = useState({
+  const [comentario, setComentario] = useState({
     descricao: "",
-    exibe: "",     
-    idUsuario: "",     
-    idEvento: ""
-  })
+    exibe: "",
+    idUsuario: "",
+    idEvento: "",
+  });
 
   async function loadEventsType() {
     setShowSpinner(true);
@@ -57,8 +58,8 @@ const EventosAlunoPage = () => {
           promiseEventos.data
         );
         
-
         setEventos(promise.data);
+
       } else if (tipoEvento === "2") {
         // Minhas presenças
         let arrEventos = [];
@@ -106,41 +107,41 @@ const EventosAlunoPage = () => {
     setTipoEvento(tpEvent);
   }
   // ler um comentário - get
-  const loadMyComentary = async (idUser, idEvento) => {
+  const loadMyComentary = async (idUsuario, idEvento) => {
     try {
-      const promise = await api.get(`/ComentariosEvento/BuscarPorIdUsuario?idUser=${idUser}&idEvent=${idEvento}`)
-
-      setComentario(promise.data)
+      const promise = await api.get(
+        `/ComentariosEvento/?idUsuario=${idUsuario}&idEvento=${idEvento}`
+      );
 
       console.log(promise.data);
+
+      setComentario(promise.data);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   // Cadastra comentário - post
-  const postMyComentary = async (comentario) => {
+  const postMyComentary = async (descricao, idUsuario, idEvento) => {
     // alert("Cadastrar comentário")
     try {
-      const {descricao, exibe, idUsuario, idEvento} = comentario
-
-      const retorno = await api.post("/ComentariosEvento", {
-        descricao: descricao,
-        exibe: exibe,     
-        idUsuario: idUsuario,     
-        idEvento: idEvento,
-      })
-
       
+
+      const retorno = await api.post("/ComentariosEvento/CadastroIA", {
+        descricao: descricao,
+        exibe: true,
+        idUsuario: idUsuario,
+        idEvento: idEvento,
+      });
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   // Remove comentário - delete
   const commentaryRemove = async (idComentary) => {
     try {
-      const promise = await api.delete("/Comentario", {idComentary})
+      const promise = await api.delete("/Comentario", { idComentary });
     } catch (error) {
       console.log(error);
     }

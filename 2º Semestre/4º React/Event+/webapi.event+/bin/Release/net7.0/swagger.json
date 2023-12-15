@@ -47,31 +47,6 @@
             "description": "Success"
           }
         }
-      },
-      "post": {
-        "tags": [
-          "ComentariosEvento"
-        ],
-        "consumes": [
-          "application/json-patch+json",
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/ComentariosEvento"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
       }
     },
     "/api/ComentariosEvento/ListarSomenteExibe": {

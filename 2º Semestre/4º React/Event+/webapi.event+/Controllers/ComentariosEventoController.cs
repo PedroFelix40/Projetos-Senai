@@ -141,21 +141,6 @@ namespace webapi.event_.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult Post(ComentariosEvento novoComentario)
-        {
-            try
-            {
-                comentario.Cadastrar(novoComentario);
-                return StatusCode(201, novoComentario);
-            }
-            catch (Exception e)
-            {
-
-                return BadRequest(e.Message);
-            }
-        }
-
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

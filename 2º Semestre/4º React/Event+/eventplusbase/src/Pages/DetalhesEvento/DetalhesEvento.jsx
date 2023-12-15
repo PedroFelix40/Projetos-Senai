@@ -16,11 +16,14 @@ import Container from "../../Components/Container/Container";
 import Title from "../../Components/Title/Title";
 
 const DetalhesEvento = ({}) => {
+  // Recebendo userData da UserContext
   const { userData } = useContext(UserContext);
-  const [todosComentarios, setTodosComentarios] = useState([]);
-
+  
   // Use o parametro passado pela url
   const { idEvento } = useParams();
+  
+  // Lista com todos comentários de um evento
+  const [todosComentarios, setTodosComentarios] = useState([]);
 
   async function AllComentsEvents() {
     try {

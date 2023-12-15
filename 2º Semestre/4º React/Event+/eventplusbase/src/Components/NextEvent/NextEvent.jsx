@@ -25,13 +25,8 @@ const NextEvent = ({ idEvento, title, description, eventDate }) => {
 
       <p className="event-card__description">{dateFormatDbToView(eventDate)}</p>
 
-      <Link to={`/detalhes-evento/${idEvento}`}>
-        <a
-          
-          className="event-card__connect-link"
-        >
-          Detalhes
-        </a>
+      <Link className="event-card__connect-link" to={`/detalhes-evento/${idEvento}`}>
+        <a>Detalhes</a>
       </Link>
     </article>
   );

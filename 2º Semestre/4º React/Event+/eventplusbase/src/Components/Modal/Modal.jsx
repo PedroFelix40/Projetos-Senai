@@ -9,6 +9,7 @@ const Modal = ({
   modalTitle = "Feedback",
   comentaryText = "Não informado. Não informado. Não informado.",
   userId = null,
+  idEvento = null,
   showHideModal = false,
   fnPost = null,
   fnGet = null,
@@ -16,13 +17,10 @@ const Modal = ({
 
 }) => {
 
-  const { userData, setUserData } = useContext(UserContext);
-  useEffect(() =>{
-    async function carregarDados() { 
-      fnGet();
-    }
-
-    carregarDados()
+  // recupera os dados globais do usuário
+  const { userData } = useContext(UserContext);
+  useEffect(() =>{   
+      fnGet(userId, idEvento);
   },[])
 
   return (
