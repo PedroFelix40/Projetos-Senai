@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "revisaoProps",
-    "slug": "revisaoProps",
+    "name": "RevisaoHooks",
+    "slug": "RevisaoHooks",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,9 +25,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-font"
-    ]
+    }
   }
 }
