@@ -1,4 +1,4 @@
-import { BoxInput } from "../../Components/BoxInput/Index";
+import { BoxInput } from "../../Components/BoxInput";
 import { ContainerForm, ScrollForm } from "./style";
 
 export function Home() {

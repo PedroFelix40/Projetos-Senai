@@ -2,9 +2,9 @@ import { InputText } from "./style"
 
 export const Input = ({
     placeholder,
-    editable,
-    fieldValue,
-    onChangeText,
+    editable = false,
+    fieldValue = null,
+    onChangeText = null,
     keyType,
     maxLength
 }) => {

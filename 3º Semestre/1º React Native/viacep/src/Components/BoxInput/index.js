@@ -1,6 +1,6 @@
 import { FieldContent } from "./style"
-import { Label } from "./Label"
-import { Input } from "./Input"
+import { Label } from "../Label"
+import { Input } from "../Input"
 
 export const BoxInput = ({
     fieldWidth = 100,
@@ -13,12 +13,12 @@ export const BoxInput = ({
     maxLength
 }) => {
     return(
-        <FieldContent>
+        <FieldContent fieldWidth={fieldWidth}>
             <Label
                 textLabel={textLabel}
             />
 
-            <Input 
+            <Input
                 editable={editable}
                 placeholder={placeholder}
                 keyType={keyType}
