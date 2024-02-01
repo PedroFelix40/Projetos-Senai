@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { useFonts, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import { ContainerApp } from './style';
 import { Header } from './src/Components/Header';
 
+// Import da fonts
+import { useFonts, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
+import { Home } from './src/screens/Home';
 
 export default function App() {
   let [fontsLoaded, fontError] = useFonts({
@@ -19,8 +20,11 @@ export default function App() {
     <ContainerApp>
       <StatusBar style="auto" />
 
+    {/* HEADER */}
     <Header/>
 
+    {/* HOMESCREEN */}
+    <Home/>
 
     </ContainerApp>
   );

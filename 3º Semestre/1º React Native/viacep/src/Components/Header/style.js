@@ -5,18 +5,18 @@ export const HeaderContainer = styled.View`
     height: 20%;
     align-items: center;
     justify-content: center;
-    border-radius: 0 0 15px 15px;
+    border-radius: 0px 0px 15px 15px;
 
-    elevation: 35;
-    box-shadow: 0px -10px 15px black;
+    /* Shadow */
+    box-shadow: 0px 0px 10px #00000030;
 `
 export const HeaderContent = styled.SafeAreaView`
-    color: white;
+    margin-top: 30px;
 `
 
 export const TextHeader = styled.Text`
     font-size: 24px;
     font-family: 'Roboto_500Medium';
     color: #333E33;
-    margin-top: 8%;
+    
 `
