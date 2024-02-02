@@ -1,0 +1,12 @@
+{
+    "cep" : [
+        {
+            "id" : "1",
+            "logradouro" : "Rua dos bobos",
+            "bairro" : "bairro",
+            "localidade" : "localidade",
+            "estado" : "estado",
+            "uf" : "uf"
+        }
+    ]
+}
