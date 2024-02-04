@@ -1,19 +1,38 @@
-import { useState } from "react";
+// Import dos Hooks
+import { useEffect, useState } from "react";
+
+// Import dos components
 import { BoxInput } from "../../Components/BoxInput";
 import { ContainerForm, ContainerInput, ScrollForm } from "./style";
-import { IMaskInput } from "react-imask";
+
+// import da API
+import api from "../../Services/Services";
 
 export function Home() {
     // states - variáveis
-    const [cep, setCep] = useState('765757575');
-    const [logradouro, setLogradouro] = useState("eee");
-    const [bairro, setBairro] = useState("eee");
-    const [cidade, setCidade] = useState("eee");
-    const [estado, setEstado] = useState("eee");
-    const [uf, setUf] = useState("eee");
+    const [cep, setCep] = useState();
+    const [logradouro, setLogradouro] = useState("");
+    const [bairro, setBairro] = useState("");
+    const [cidade, setCidade] = useState("");
+    const [estado, setEstado] = useState("");
+    const [uf, setUf] = useState("");
 
 
     // useEffect - funções
+
+    async function mostrarEndereco() {
+        const promise = await api.get(`${cep}`)
+
+        setLogradouro(promise.data.result.street); 
+        setBairro(promise.data.result.district);
+        setCidade(promise.data.result.city)
+        setEstado(promise.data.result.state)
+        setUf(promise.data.result.stateShortname)
+    }
+
+    useEffect( () => {
+        mostrarEndereco()
+    }, [cep])
 
     return (
         <ScrollForm>
@@ -25,7 +44,7 @@ export function Home() {
                     keyType="numeric"
                     maxLength={9}
                     fieldValue={cep}
-                    onChangeText={tx => setCep(tx)}
+                    onChangeText={(tx => setCep(tx))}
                 />
 
                 <BoxInput
