@@ -6,28 +6,40 @@ import { BoxInput } from "../../Components/BoxInput";
 import { ContainerForm, ContainerInput, ScrollForm } from "./style";
 
 // import da API
-import api from "../../Services/Services";
+import api from "../../services/Services";
 
 export function Home() {
     // states - variáveis
     const [cep, setCep] = useState();
-    const [logradouro, setLogradouro] = useState("");
-    const [bairro, setBairro] = useState("");
-    const [cidade, setCidade] = useState("");
-    const [estado, setEstado] = useState("");
-    const [uf, setUf] = useState("");
 
+    // Aqui foi feito um state para cada dado
+    // const [logradouro, setLogradouro] = useState("");
+    // const [bairro, setBairro] = useState("");
+    // const [cidade, setCidade] = useState("");
+    // const [estado, setEstado] = useState("");
+    // const [uf, setUf] = useState("");
+
+    // Neste caso, criamos um objeto
+    const [ dados, setDados ] = useState({
+        street: '',
+        district: '',
+        city: '',
+        state: '',
+        stateShortname: ''
+    })
 
     // useEffect - funções
 
     async function mostrarEndereco() {
         const promise = await api.get(`${cep}`)
 
-        setLogradouro(promise.data.result.street); 
-        setBairro(promise.data.result.district);
-        setCidade(promise.data.result.city)
-        setEstado(promise.data.result.state)
-        setUf(promise.data.result.stateShortname)
+        // setLogradouro(promise.data.result.street); 
+        // setBairro(promise.data.result.district);
+        // setCidade(promise.data.result.city)
+        // setEstado(promise.data.result.state)
+        // setUf(promise.data.result.stateShortname)
+
+        setDados(promise.data.result);
     }
 
     useEffect( () => {
@@ -48,32 +60,32 @@ export function Home() {
                 />
 
                 <BoxInput
-                    fieldValue={logradouro}
+                    fieldValue={dados.street}
                     textLabel='Logradouro'
                     placeholder='Logradouro...'
                 />
 
                 <BoxInput
-                    fieldValue={bairro}
+                    fieldValue={dados.district}
                     textLabel='Bairro'
                     placeholder='Bairro...'
                 />
 
                 <BoxInput
-                    fieldValue={cidade}
+                    fieldValue={dados.city}
                     textLabel='Cidade'
                     placeholder='Cidade...'
                 />
 
                 <ContainerInput>
                     <BoxInput
-                        fieldValue={estado}
+                        fieldValue={dados.state}
                         fieldWidth={67}
                         textLabel='Estado'
                         placeholder='Estado...'
                     />
                     <BoxInput
-                        fieldValue={uf}
+                        fieldValue={dados.stateShortname}
                         textLabel='UF'
                         placeholder='UF'
                         fieldWidth={23}
