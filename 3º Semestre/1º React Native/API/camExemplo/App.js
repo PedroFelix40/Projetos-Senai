@@ -9,6 +9,9 @@ import { Camera, CameraType } from 'expo-camera';
 // Icon
 import { FontAwesome } from '@expo/vector-icons'
 
+// Import de algo
+import * as MediaLibrary from 'expo-media-library'
+
 export default function App() {
 
   const cameraRef = useRef(null)
@@ -18,22 +21,54 @@ export default function App() {
 
   const [tipoCamera, setTipoCamera] = useState(CameraType.front)
 
+  /*
+    1 - Quando salvar a foto e clicar na lixeira - remover a galeria
+    2 - permitir a foto com flash
+    3 - botao para recarregar o autofocus
+    4 - Capturar e salvar vídeo
+  */
+
   useEffect(() => {
     (async () => {
       const { status: cameraStatus } = await Camera.requestCameraPermissionsAsync()
+
+      const { status: mediaStatus } = await MediaLibrary.requestPermissionsAsync()
     })();
   }, [])
 
   async function CapturePhotos() {
     if (cameraRef) {
-      const photo = await cameraRef.current.takePictureAsync()
+      const photo = await cameraRef.current.takePictureAsync({
+        flash: 'on' // 'auto' | 'off'
+      })
       setPhoto(photo.uri)
+      
 
       setOpenModal(true)
 
       console.log(photo)
     }
   }
+
+  async function UploadPhoto() {
+    await MediaLibrary.createAssetAsync(photo)
+      .then(() => {
+        alert('Foto salva com sucesso')
+      }).catch(error => {
+        alert('Não foi possivel processar a foto')
+      })
+  }
+
+  async function ClearPhoto() {
+    setPhoto(null)
+    await MediaLibrary.deleteAssetsAsync(photo)
+    setOpenModal(false)
+  }
+
+  // const photo = await camera.current.takePhoto({
+  //   flash: 'on' // 'auto' | 'off'
+  // })
+
 
   return (
     <View style={styles.container}>
@@ -57,11 +92,15 @@ export default function App() {
       <Modal animationType='slide' transparent={false} visible={openModal}>
 
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', margin: 20 }}>
-          <View style={{ margin: 10, flexDirection: 'row' }}>
+          <View style={{ margin: 10, flexDirection: 'row', gap: 20 }}>
             {/* Botões de controle */}
-            <Text onPress={() => setOpenModal(false)}>
-              fechar
-            </Text>
+            <TouchableOpacity style={styles.btnClear} onPress={() => ClearPhoto()}>
+              <FontAwesome name='trash' size={35} color={'#ff0000'} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.btnUpload} onPress={() => UploadPhoto()}>
+              <FontAwesome name='upload' size={35} color={'#121212'} />
+            </TouchableOpacity>
           </View>
 
           <Image
@@ -105,6 +144,20 @@ const styles = StyleSheet.create({
     margin: 20,
     borderRadius: 10,
     backgroundColor: "#121212",
+
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  btnClear: {
+    padding: 20,
+    backgroundColor: "transparent",
+
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  btnUpload: {
+    padding: 20,
+    backgroundColor: "transparent",
 
     justifyContent: 'center',
     alignItems: 'center'
