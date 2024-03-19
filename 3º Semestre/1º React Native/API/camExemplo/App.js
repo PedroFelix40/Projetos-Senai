@@ -38,9 +38,7 @@ export default function App() {
 
   async function CapturePhotos() {
     if (cameraRef) {
-      const photo = await cameraRef.current.takePictureAsync({
-        flash: 'on' // 'auto' | 'off'
-      })
+      const photo = await cameraRef.current.takePictureAsync()
       setPhoto(photo.uri)
       
 
