@@ -1,0 +1,14 @@
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\bin\Debug\net8.0\ConversaoTemperatura.exe
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\bin\Debug\net8.0\ConversaoTemperatura.deps.json
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\bin\Debug\net8.0\ConversaoTemperatura.runtimeconfig.json
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\bin\Debug\net8.0\ConversaoTemperatura.dll
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\bin\Debug\net8.0\ConversaoTemperatura.pdb
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ConversaoTemperatura.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ConversaoTemperatura.AssemblyInfoInputs.cache
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ConversaoTemperatura.AssemblyInfo.cs
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ConversaoTemperatura.csproj.CoreCompileInputs.cache
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ConversaoTemperatura.dll
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\refint\ConversaoTemperatura.dll
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ConversaoTemperatura.pdb
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ConversaoTemperatura.genruntimeconfig.cache
+C:\Users\48746019871\source\repos\ConversaoTemperatura\ConversaoTemperatura\obj\Debug\net8.0\ref\ConversaoTemperatura.dll

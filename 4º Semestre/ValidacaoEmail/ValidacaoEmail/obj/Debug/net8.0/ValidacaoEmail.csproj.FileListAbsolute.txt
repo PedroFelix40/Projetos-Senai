@@ -1,0 +1,14 @@
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ValidacaoEmail.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ValidacaoEmail.AssemblyInfoInputs.cache
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ValidacaoEmail.AssemblyInfo.cs
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ValidacaoEmail.csproj.CoreCompileInputs.cache
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\bin\Debug\net8.0\ValidacaoEmail.exe
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\bin\Debug\net8.0\ValidacaoEmail.deps.json
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\bin\Debug\net8.0\ValidacaoEmail.runtimeconfig.json
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\bin\Debug\net8.0\ValidacaoEmail.dll
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\bin\Debug\net8.0\ValidacaoEmail.pdb
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ValidacaoEmail.dll
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\refint\ValidacaoEmail.dll
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ValidacaoEmail.pdb
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ValidacaoEmail.genruntimeconfig.cache
+C:\Users\48746019871\source\repos\ValidacaoEmail\ValidacaoEmail\obj\Debug\net8.0\ref\ValidacaoEmail.dll
