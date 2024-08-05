@@ -1,0 +1,6 @@
+@APAGAR_HostAddress = http://localhost:5269
+
+GET {{APAGAR_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
