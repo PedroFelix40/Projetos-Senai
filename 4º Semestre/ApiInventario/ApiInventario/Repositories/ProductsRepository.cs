@@ -14,12 +14,35 @@ namespace ApiInventario.Repositories
 
         public void DeleteProduct(Guid idProduct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Products products = _context.Products.FirstOrDefault(p => p.IdProduct == idProduct)!;
+
+                if (products is not null)
+                {
+                    _context.Products.Remove(products);
+                    _context.SaveChanges();
+                }                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public Products GetById(int id)
+        public Products GetById(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _context.Products.FirstOrDefault(p => p.IdProduct == id)!;
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Products> GetProduts()
@@ -37,12 +60,40 @@ namespace ApiInventario.Repositories
 
         public void PostProduct(Products product)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Products.Add(product);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void PutProduct(Guid idProduct, Products product)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Products products = _context.Products.FirstOrDefault(p => p.IdProduct == idProduct)!;
+
+                if (products is not null)
+                {
+                    products.Name = product.Name;
+                    products.Price = product.Price;
+
+                }
+                    _context.Products.Update(products!);
+                    _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
+
     }
 }
