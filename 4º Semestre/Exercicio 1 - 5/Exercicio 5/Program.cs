@@ -3,18 +3,28 @@
 
 using System.Text.RegularExpressions;
 
-string textUser;
-Console.WriteLine($"Digite um texto, e em seguida diremos quantas vezes cada letra do alfabeto aparece no texto: ");
-textUser = Console.ReadLine()!;
+string texto = "";
 
-string source = "/once/upon/a/time/";
-int count = 0;
-foreach (char c in textUser)
+Console.WriteLine($"Digite um texto, e em seguida diremos quantas vezes cada letra do alfabeto aparece no texto: ");
+texto = Console.ReadLine()!;
+
+Dictionary<char, int> letras = [];
+
+foreach (char c in texto.ToLower())
 {
-    if (c == 'e')
+    if (char.IsLetter(c))
     {
-        count++;
+        if (letras.ContainsKey(c))
+        {
+            letras[c]++;
+        }
+        else
+        {
+            letras.Add(c, 1);
+        }
     }
 }
-Console.WriteLine(count);
-
+foreach (var letra in letras)
+{
+    Console.WriteLine($"Letra: '{letra.Key}' apareceu {letra.Value} vezes.");
+}
