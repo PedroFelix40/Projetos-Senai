@@ -1,0 +1,14 @@
+.LogoAndLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.section-1 {
+    background-color: #1E52B4;
+}
+
+.img-mapa-brasil {
+    height: 380px;
+    width: 334px;
+}
