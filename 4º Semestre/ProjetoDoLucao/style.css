@@ -1,3 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-layout {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+
+/* Header */
+
+header {
+    position: absolute;
+    width: 100%;
+    margin-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    gap: 30px;
+}
+
+header nav {
+    width: 365px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .button-cadastrar {
+    border: 2px solid white;
+    border-radius: 8px;
+    width: 151px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Main */
+
 .LogoAndLinks {
     display: flex;
     flex-direction: row;
@@ -5,10 +56,129 @@
 }
 
 .section-1 {
-    background-color: #1E52B4;
+    /* background-color: #1E52B4; */
+    background: linear-gradient(to left, #002777, #1E52B4);
+    color: white;
+    height: 461px;
+}
+
+.section-1 h1 {
+    font-size: 28px;
+}
+
+.section-1 p {
+    width: 414px;
+    font-size: 18px;
+}
+
+.text-hospedagens {
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.align-section1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .img-mapa-brasil {
-    height: 380px;
-    width: 334px;
+    height: 340px;
+    width: 434px;
+}
+
+
+/* ******** SECTION PESQUISA ********* */
+
+.section-pesquisa {
+    background-color: #fff;
+    width: 942px;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* Border */
+    /* border: 2px solid; */
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* Position */
+    position: absolute;
+    top: 415px;
+    left: 288px;
+}
+
+.section-pesquisa .item-pesquisa {
+    display: flex;
+    width: 235px;
+    height: 40px;
+    gap: 10px;
+    border-right: 2px #000 dashed;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-pesquisa .item-hotel-box {
+    width: 235px;
+    display: flex;
+    justify-content: center;
+}
+
+.section-pesquisa .item-hotel-box .item-hotel {
+    display: flex;
+    gap: 10px;
+    background-color: #009C3B;
+    width: 160px;
+    height: 45px;
+    border-radius: 8px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-pesquisa .item-pesquisa .img-pesquisa {
+    width: 14px;
+    height: 16px;
+}
+
+
+/* ****************************** */
+
+.section-2 {
+    height: 691px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* align-items:;- */
+}
+
+.section-2 .align-section2 {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 30px; */
+}
+
+.section-2 article {
+    width: 280px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section-2 .img-hotel {
+    width: 100%;
+    height: 170px;
+    border-radius: 8px;
+}
+
+.section-2 h1 {
+    color: #2E2636;
+    font-size: 16px;
+}
+
+.section-2 p {
+    color: #33303E;
+    font-size: 12px;
 }
