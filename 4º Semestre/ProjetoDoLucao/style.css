@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +14,14 @@
 
 /* Header */
 
+header .menu-hamburguer {
+    display: none;
+}
+
+header #menu {
+    display: none;
+}
+
 header {
     position: absolute;
     width: 100%;
@@ -27,6 +36,8 @@ header a {
     color: #fff;
     font-size: 14px;
     gap: 30px;
+    font-family: "Lato";
+    font-weight: 500;
 }
 
 header nav {
@@ -64,11 +75,15 @@ header .button-cadastrar {
 
 .section-1 h1 {
     font-size: 28px;
+    font-family: "Lato";
+    font-weight: 600;
 }
 
 .section-1 p {
     width: 414px;
     font-size: 18px;
+    font-family: "Lato";
+    font-weight: 400;
 }
 
 .text-hospedagens {
@@ -117,6 +132,10 @@ header .button-cadastrar {
     border-right: 2px #000 dashed;
     justify-content: center;
     align-items: center;
+}
+
+.section-pesquisa p {
+    font-family: "Lato";
 }
 
 .section-pesquisa .item-hotel-box {
@@ -176,9 +195,172 @@ header .button-cadastrar {
 .section-2 h1 {
     color: #2E2636;
     font-size: 16px;
+    font-family: "Lato";
 }
 
 .section-2 p {
     color: #33303E;
     font-size: 12px;
+    font-family: "Lato";
+}
+
+
+/* **********  Section 3 ************* */
+
+.section-3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-3 .text-section3 {
+    height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.section-3 h1 {
+    font-size: 28px;
+    width: 455px;
+    font-family: "Lato";
+    font-weight: 800;
+}
+
+.section-3 p {
+    font-size: 20px;
+    font-family: "Lato";
+    font-weight: 500;
+}
+
+.section-3 #hotel-color {
+    color: #002777;
+}
+
+.section-3 #promocoes-color {
+    color: #019438;
+}
+
+.section-3 #naoPerca-color {
+    color: #019438;
+}
+
+.section-3 #melhor-color {
+    color: #FFDF00;
+}
+
+.section-3 .img-travel {
+    width: 450px;
+    height: 300px;
+}
+
+
+/* ********* Section 4 ********* */
+
+.section-4 {
+    background: linear-gradient(to left, #009C3B, #009538);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.section-4 .info-section3 {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section-4 .img-bubbles {
+    width: 320px;
+    height: 160px;
+}
+
+.section-4 h2 {
+    font-size: 24px;
+    font-family: "Lato";
+    font-weight: 500;
+}
+
+.section-4 p {
+    font-size: 16px;
+    font-family: "Lato";
+    font-weight: 400;
+}
+
+
+/* ************ Section 5 */
+
+.section-5 {
+    height: 50px;
+    background-color: #FFDF00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2E2736;
+}
+
+.section-5 p {
+    font-family: "Lato";
+    font-weight: 800;
+}
+
+@media only screen and (max-width: 600px) {
+    .grid-layout {
+        width: 90%;
+        max-width: 1600px;
+    }
+    /* header */
+    header .menu-hamburguer {
+        display: block;
+        color: #fff;
+    }
+    header #menu {
+        display: block;
+    }
+    header #nav-web {
+        display: none;
+    }
+    header #img-logo {
+        display: none;
+    }
+    .section-1 .img-mapa-brasil {
+        display: none;
+    }
+    .section-2 {
+        height: 2300px;
+    }
+    .section-2 .align-section2 {
+        flex-direction: column;
+        align-items: center;
+        margin: 15px;
+        gap: 30px;
+    }
+    .section-pesquisa {
+        display: none;
+    }
+    .section-3 .img-travel {
+        display: none;
+    }
+    .section-3 h1 {
+        font-size: 18px;
+        width: 300px;
+    }
+    .section-3 p {
+        font-size: 18px;
+        width: 350px;
+    }
+    .section-4 {
+        align-items: center;
+        justify-content: center;
+    }
+    .section-4 .img-bubbles {
+        display: none;
+    }
+    .section-4 h2 {
+        font-size: 14px;
+    }
+    .section-4 p {
+        font-size: 14px;
+    }
 }

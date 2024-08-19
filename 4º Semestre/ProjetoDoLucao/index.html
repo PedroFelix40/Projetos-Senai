@@ -12,16 +12,28 @@
     <header>
         <div class="LogoAndLinks grid-layout">
 
-            <a href="">
+            <a id="img-logo" href="">
                 <img src="./assets/logo-branca.png" alt="">
             </a>
 
-            <nav>
+            <nav id="nav-web">
                 <a href="">Hotéis</a>
                 <a href="">Contato</a>
                 <a href="">Entrar</a>
                 <a class="button-cadastrar">Cadastrar-se</a>
             </nav>
+
+            <!-- menu 3 pontinhos -->
+            <img onclick="mostrarUsuarios()" class="menu-hamburguer" src="./assets/icons/menu.svg" alt="Icone de 3 pontinhos, abre e fecha o menu de usuários">
+            <!--  -->
+
+            <nav id="menu">
+                <a href="">Hotéis</a>
+                <a href="">Contato</a>
+                <a href="">Entrar</a>
+                <a class="button-cadastrar">Cadastrar-se</a>
+            </nav>
+
         </div>
     </header>
 
@@ -109,12 +121,46 @@
                 </article>
             </div>
         </section>
+
+        <section class="section-3 grid-layout">
+            <div class="text-section3">
+                <h1>Venha conferir os melhores <span id="hotel-color">hoteis</span> com as melhores <span id="promocoes-color">promoções</span> do país</h1>
+
+                <p><span id="naoPerca-color">Não perca tempo</span> e venha conferir o que há de <span id="melhor-color">melhor</span> na hotelagem brasileira</p>
+            </div>
+
+            <img class="img-travel" src="./assets/travel.png" alt="">
+
+        </section>
+
     </main>
 
 
     <footer>
+        <section class="section-4">
+            <img class="img-bubbles" src="./assets/bubbles-bg.png" alt="">
+            <div class="info-section3">
+                <h2>Fale com um de nosso acessores</h2>
+
+                <div>
+                    <p>hospedagens@contato.com.br</p>
+                    <p>(11)0800-7070-7070</p>
+                </div>
+            </div>
+            <img class="img-bubbles" src="./assets/bubbles-bg.png" alt="">
+        </section>
+
+        <section class="section-5">
+            <p>Hospedagens.com</p>
+        </section>
 
     </footer>
+    <script>
+        function mostrarMenu() {
+            document.getElementById("menu").classList.toggle("mostrar-menu")
+
+        }
+    </script>
 </body>
 
 </html>
