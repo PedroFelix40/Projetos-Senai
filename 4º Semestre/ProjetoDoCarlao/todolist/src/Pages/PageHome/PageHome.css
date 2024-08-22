@@ -7,8 +7,9 @@ body {
 .main-content {
     background-color: #8758FF;
     display: flex;
-    /* align-items: center; */
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
 }
 
 .main-content .section-menu {
@@ -115,4 +116,16 @@ body {
     justify-content: space-between;
     margin-right: 16px;
     width: 75px;
+}
+
+#button-new-task {
+    position: relative;
+    left: 270px;
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    border: solid 2px #FCFCFC;
+    background-color: #6C45CE;
+    color: #FCFCFC;
 }
