@@ -1,5 +1,54 @@
-.modal {
+.modalEdit {
+    position: absolute;
+    top: 130px;
+
     width: 915px;
     height: 470px;
     background-color: #1E123B;
+    border-radius: 8px;
+
+    color: #fcfcfc;
+
+    /* Alinhamento */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: space-around;
+}
+
+.modalEdit h1{
+    font-size: 32px;
+}
+
+.modalEdit input {
+    width: 570px;
+    height: 170px;
+    
+    padding: 10px;
+    box-sizing: border-box;
+
+    background-color: transparent;
+    color: #fcfcfc;
+
+    border: 2px solid white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: flex-start;
+
+    text-align: start;
+
+    font-size: 18px;
+}
+
+.modalEdit button {
+    width: 320px;
+    height: 65px;
+
+    border-radius: 8px;
+    
+    border: 2px solid #fcfcfc;
+    background-color: #6C45CE;
+    color: #fcfcfc;
+    font-size: 20px;
 }

@@ -11,54 +11,23 @@ import Modal from "../../Components/Modal/Modal"
 
 const PageHome = () => {
 
-    const [task, setTask] = useState([
-        {
-            id: 1,
-            statusCheck: true,
-            nomeAtividade: "Fazer licao"
-        },
-        {
-            id: 2,
-            statusCheck: true,
-            nomeAtividade: "oi a atividade ae"
-        },
-        {
-            id: 3,
-            statusCheck: false,
-            nomeAtividade: "Fazer comida"
-        },
-        {
-            id: 4,
-            statusCheck: true,
-            nomeAtividade: "Comece a atividade ae"
-        },
-        {
-            id: 5,
-            statusCheck: false,
-            nomeAtividade: "Fazer suco"
-        },
-        {
-            id: 6,
-            statusCheck: true,
-            nomeAtividade: "Comece a atividade ae"
-        }
-
-    ])
+    const [task, setTask] = useState([])
 
     useEffect(() => {
         console.log(task);
-      }, [task]);
+    }, [task]);
 
 
+    // Função para filtar por nome
     const [nomeAtividade, setNomeAtividade] = useState();
-
     const taskFilter = task.filter(task => task.nomeAtividade === nomeAtividade);
 
 
+    // Pegando a data atual *************
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
 
-    function mesAtual() {
+    const mesAtual = () => {
         var mesAtuals;
         switch (today.getMonth() + 1) {
             case 1:
@@ -104,7 +73,7 @@ const PageHome = () => {
         return mesAtuals;
     }
 
-    function diaSemana() {
+    const diaSemana = () => {
         var diaAtual
         switch (today.getDay()) {
             case 1:
@@ -136,18 +105,29 @@ const PageHome = () => {
         return diaAtual;
     }
 
-    const addTask = (nomeAtividade) => {
+    const addTask = (nomeAtividadeAdd,e) => {
+        // e.prevent
 
-        if (!nomeAtividade || nomeAtividade.trim() === '') {
-          alert('Descrição da tarefa não pode ser vazia.');
-          return;
+        if (!nomeAtividadeAdd || nomeAtividadeAdd.trim() === '') {
+            alert('Descrição da tarefa não pode ser vazia.');
+            return;
         }
-    
-        const newTask = { id: task.length + 1, nomeAtividade };
-        setTask(newTask);
-    
-        //setExibir(false);
-      };
+
+        const newTask = { id: task.length + 1, statusCheck: false, nomeAtividadeAdd };
+        setTask([...task, newTask]);
+
+
+        setExibirModalState(false);
+        setNomeAtividade("")
+    };
+
+    // Logica do modal
+    const [exibirModalState, setExibirModalState] = useState(false);
+
+    const ExibirModal = () => {
+        setExibirModalState(!exibirModalState);
+        console.log(exibirModalState);
+    };
 
     return (
         <body className="main-content">
@@ -171,7 +151,7 @@ const PageHome = () => {
                 <div className="list-task">
 
                     {
-                        nomeAtividade == "" || nomeAtividade == null ?
+                        nomeAtividade === "" || nomeAtividade == null ?
                             (
                                 task.map((e) => {
                                     return (
@@ -196,7 +176,13 @@ const PageHome = () => {
                 </div>
             </section>
 
-            <button id="button-new-task">Nova tarefa</button>
+            <button id="button-new-task" onClick={ExibirModal}>Nova tarefa</button>
+
+            <Modal
+                visible={exibirModalState}
+                addTask={addTask}
+                nomeAtividade={nomeAtividade}
+            />
 
         </body>
     )

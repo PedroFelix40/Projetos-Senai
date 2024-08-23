@@ -1,6 +1,3 @@
-import check from "../../Assets/Icons/check.svg"
-import checkVazio from "../../Assets/Icons/check-vazio.svg"
-
 import putWhite from "../../Assets/Icons/editWhite.svg"
 import putBlack from "../../Assets/Icons/editBlack.svg"
 import deleleWhite from "../../Assets/Icons/deleteWhite.svg"
